@@ -1,0 +1,24 @@
+{
+  "name": "online-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" "
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalRej/Online-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SalRej/Online-shop/issues"
+  },
+  "homepage": "https://github.com/SalRej/Online-shop#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  }
+}

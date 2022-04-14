@@ -2,9 +2,10 @@ import React from "react";
 function App() {
 
   React.useEffect(()=>{
-    fetch("http://localhost:5000/test").
-    then(res=>{return res.json()}).
-    then((res)=>console.log(res));
+    // fetch("http://localhost:5000/test").
+    // then(res=>{return res.json()}).
+    // then((res)=>console.log(res));
+    console.log("hey")
   },[])
 
   return (

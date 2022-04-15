@@ -1,4 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .header {
-  background-color: red;
+  font-family: futura-pt,sans-serif;
+  background-color: #2d2d2d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 600;
+  font-size: 1.2vw;
+  padding-left: 7%;
+  padding-right: 7%;
+  color: white;
+  height: 3em;
+}
+
+.header img {
+  width: 1.6vw;
+  height: 1.6vw;
+  padding-left: 2%;
+}
+
+.header .logo {
+  width: 7%;
+  height: auto;
+  border-radius: solid 1px white;
+}
+
+.header .search-bar-holder {
+  position: relative;
+  width: 55%;
+  height: 60%;
+  margin-right: 3%;
+}
+
+.header .search-bar {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 25px;
+  padding-left: 3%;
+}
+
+.header .search-icon {
+  position: absolute;
+  right: -2%;
+  top: 20%;
+  height: 65%;
+  width: auto;
+}
+
+.header .categorie {
+  height: 100%;
+  width: 8vw;
+}
+
+.header .categorie:hover {
+  background-color: #4b4b4b;
+  cursor: pointer;
+}
+
+.header p {
+  line-height: 2.8em;
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */

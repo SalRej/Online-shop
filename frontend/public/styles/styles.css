@@ -138,4 +138,11 @@
   color: cornflowerblue;
   cursor: pointer;
 }
+
+@media all and (max-width: 550px) {
+  .footer {
+    display: block;
+    text-align: center;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

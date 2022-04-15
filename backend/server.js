@@ -14,10 +14,10 @@ app.use(cors());
 app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
 
 // create a GET route
-app.get('/', (req, res) => { //Line 9
-  res.send("test")
-});
+
+const homeRouter = require('./routes/home');
 
 app.get("/test",(req,res)=>{
   res.send(JSON.stringify({test:"test route"}));
 })
+app.use("/home",homeRouter);

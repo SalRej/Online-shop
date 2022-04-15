@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+
 import {
   BrowserRouter as Router , Routes , Route
 } from "react-router-dom";
@@ -18,7 +20,7 @@ function App() {
     <Router>
         <Header/>
         <Routes>
-          <Route path="/" element={<p>Main body</p>}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="test" element={<div>My Test Element</div>}></Route>
         </Routes>
         <Footer/>

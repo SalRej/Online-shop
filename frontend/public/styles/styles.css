@@ -23,6 +23,11 @@
   height: 3em;
 }
 
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
 .header img {
   width: 1.5em;
   height: 1.5em;
@@ -134,7 +139,7 @@
   margin-bottom: 5%;
 }
 
-.footer p:hover, .footer h3:hover {
+.footer p:hover {
   color: cornflowerblue;
   cursor: pointer;
 }

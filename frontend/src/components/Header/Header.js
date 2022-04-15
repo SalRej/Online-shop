@@ -11,14 +11,20 @@ const Header = () =>{
     },[screenWidth]);
     return(
         <div className='header'>
-            {(window.innerWidth <= 1000)?<img className='menu' src='images/menu.png'/>:<></>}
+            {(window.innerWidth <= 1000) && <img className='menu' src='images/menu.png'/>}
             <img className='logo' src='images/logo.jpg'/>
-            <div className='categorie'>
-                <p>Men</p>
-            </div>
-            <div className='categorie'>
-                <p>Women</p>
-            </div>
+            <Link to='/men'>
+                <div className='categorie'>
+                    <p>
+                        Men
+                    </p>
+                </div>
+            </Link>
+            <Link to='/women'>
+                <div className='categorie'>
+                    <p>Women</p>
+                </div>
+            </Link>
             <div className='search-bar-holder'>
                 <input className='search-bar' placeholder='Search for items and brands'/>
                 <img src='images/search.png' className='search-icon'/>

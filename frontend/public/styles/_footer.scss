@@ -1,0 +1,17 @@
+.footer{
+    font-family:futura-pt,sans-serif;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(238,238,238);
+    h3{
+        margin-top:5%;
+    }
+    p{
+        margin-top:3%;
+        margin-bottom: 5%;
+    }
+    p:hover , h3:hover{
+        color:cornflowerblue;
+        cursor: pointer;
+    }
+}

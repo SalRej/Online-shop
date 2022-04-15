@@ -1,4 +1,10 @@
 import React from "react";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import {
+  BrowserRouter as Router , Routes , Route
+} from "react-router-dom";
+
 function App() {
 
   React.useEffect(()=>{
@@ -9,9 +15,14 @@ function App() {
   },[])
 
   return (
-    <div className="App">
-      raboti
-    </div>
+    <Router>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<p>Main body</p>}></Route>
+          <Route path="test" element={<div>My Test Element</div>}></Route>
+        </Routes>
+        <Footer/>
+    </Router>
   );
 }
 

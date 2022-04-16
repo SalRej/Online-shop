@@ -15,9 +15,9 @@ app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
 
 // create a GET route
 
-const homeRouter = require('./routes/home');
+const getSales = require('./routes/getSales');
 
 app.get("/test",(req,res)=>{
   res.send(JSON.stringify({test:"test route"}));
 })
-app.use("/home",homeRouter);
+app.use("/getSales",getSales);

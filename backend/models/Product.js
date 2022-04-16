@@ -56,6 +56,10 @@ const productSchema = new mongoose.Schema({
     id:{
         type:String,
         required:true
+    },
+    c_isSale:{
+        type:Boolean,
+        required:false
     }
 })
 

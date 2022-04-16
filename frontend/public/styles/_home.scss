@@ -1,0 +1,95 @@
+.home-page{
+    width: 100%;
+    max-width: 100%;
+    background: rgb(255,198,248);
+    background: linear-gradient(90deg, rgba(255,198,248,1) 0%, rgba(116,10,166,1) 100%);
+    text-align: center;
+    h2{
+        padding-top:2em;
+        font-weight: bold;
+    }
+    h1{
+        font-weight:900;
+        margin-bottom: 2em;
+    }
+    button{
+        transition: 1s;
+        margin-top:2em;
+        padding:0.3em 0.8em 0.3em 0.8em;
+        font-weight: 500;
+        font-size: 1.4em;
+        background-color: white;
+        border:none;
+        margin-bottom: 3em;
+        &:hover{
+            background-color: black;
+            color:white;
+            cursor: pointer;
+            transition: 1s;
+        }
+    }
+    .sales-card-holder{
+        display: flex;
+        justify-content: center; 
+        column-gap: 2em;
+        
+        .sales-card{
+            transition: all 1s;
+            background-color:white;
+            width: 12vw;
+            height: 20vw;
+            border-radius: 15px;
+            img{
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                width: 100%;
+                height: 90%;
+                display: block;
+                margin:auto;
+            }
+            p{
+                background-color:aliceblue;
+                color:black;
+                font-weight: 600;
+                font-size:1vw;
+                padding:5%;
+                text-align: center;
+                max-height: 10%;
+                min-height: 10%;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+            &:hover{
+                transform: scale(1.1);
+             
+            }
+        }
+    }
+}
+
+@media all and (max-width:900px){
+    .home-page{
+        margin:0;
+        padding:0;
+        .sales-card-holder{
+            display: grid;
+            grid-template-columns: repeat(2,30vw);
+            grid-row-gap: 2em;
+            .sales-card{
+                width: 100%;
+                height: auto;
+                p{
+                    font-size: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width:500px){
+    .home-page{
+        .sales-card-holder{
+            grid-template-columns: repeat(2,40vw);
+        }
+    }
+}

@@ -11,7 +11,6 @@ function Categorie() {
         fetch(`http://localhost:5000/getCategorie?categorie=${categorie}`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data[0]);
             setMaincategorie(data[0]);
             setIsLoaded(true);
         })
@@ -32,7 +31,7 @@ function Categorie() {
             </div>
         }
         {
-            isLoaded == true && mainCategorie.categories.map(categorie => {
+            isLoaded === true && mainCategorie.categories.map(categorie => {
                 return <CategorieCard key={categorie.id} categorie={categorie}/>
             })
         }

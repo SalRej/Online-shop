@@ -26,7 +26,9 @@ function Home() {
                         return(
                             <Link to='/test' key={item.id}>
                                 <div className='sales-card'>
-                                    <img src={`images/${item.imageLink}`}/>   
+                                    <div className='image-container'>
+                                        <img src={`images/${item.imageLink}`}/>   
+                                    </div>
                                     <p>{item.name}</p>
                                 </div>
                             </Link>

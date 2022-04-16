@@ -6,6 +6,7 @@
 
 * a {
   text-decoration: none;
+  color: black;
 }
 
 .header {
@@ -336,6 +337,29 @@
   }
   .categorie-heading .description h4 {
     font-size: small;
+  }
+}
+
+.categorie-card-container {
+  width: 70%;
+  margin: auto;
+  margin-top: 3em;
+  padding-bottom: 2em;
+  border-bottom: solid 2px;
+}
+
+.categorie-card-container img {
+  width: 100%;
+}
+
+.categorie-card-container:last-child {
+  margin-bottom: 3em;
+}
+
+@media all and (max-width: 750px) {
+  .categorie-card-container {
+    width: 90%;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=styles.css.map */

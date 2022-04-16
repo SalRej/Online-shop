@@ -11,13 +11,37 @@
         justify-content: center;
         width: 100%;
         .mobile-categorie{
+            transition:all 0.7s;
+            background-color:rgb(130,130,130);
             width: 15vw;
             display: block;
             color:black;
             &:hover{
                 background-color: rgb(95, 94, 94);
                 color:white;
+                cursor: pointer;
             }
+        }
+    }
+    .categorie-info{
+        transition:all 0.7s;
+        color:black;
+        border-bottom:2px solid;
+        padding-bottom: 1em;
+        width: 90%;
+        margin:auto;
+        img{
+            display: block;
+            width: 100%;
+            object-fit: contain;
+            margin:auto;
+        }
+        &:last-child{
+            margin-bottom:2em;
+        }
+        &:hover{
+            background-color:rgb(170,170,170);
+            cursor: pointer;
         }
     }
 }

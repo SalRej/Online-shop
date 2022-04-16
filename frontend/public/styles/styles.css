@@ -383,6 +383,9 @@
 }
 
 .mobile-menu .categorie-holder .mobile-categorie {
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  background-color: #828282;
   width: 15vw;
   display: block;
   color: black;
@@ -391,6 +394,34 @@
 .mobile-menu .categorie-holder .mobile-categorie:hover {
   background-color: #5f5e5e;
   color: white;
+  cursor: pointer;
+}
+
+.mobile-menu .categorie-info {
+  -webkit-transition: all 0.7s;
+  transition: all 0.7s;
+  color: black;
+  border-bottom: 2px solid;
+  padding-bottom: 1em;
+  width: 90%;
+  margin: auto;
+}
+
+.mobile-menu .categorie-info img {
+  display: block;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: auto;
+}
+
+.mobile-menu .categorie-info:last-child {
+  margin-bottom: 2em;
+}
+
+.mobile-menu .categorie-info:hover {
+  background-color: #aaaaaa;
+  cursor: pointer;
 }
 
 @media all and (max-width: 600px) {

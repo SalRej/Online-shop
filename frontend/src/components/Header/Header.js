@@ -1,9 +1,14 @@
 import React ,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import MobileMenu from './MobileMenu';
+
 const Header = () =>{
 
     const [screenWidth,setScreenWidth] = useState(0);
-
+    const [toShowMobileMenu,setToShowMobileMenu] = useState(false);
+    const toogleToShowMobileMenu = () =>{
+        setToShowMobileMenu((prev)=>!prev);
+    }
     useEffect(()=>{
         window.addEventListener("resize",()=>{
             setScreenWidth(window.innerWidth);
@@ -11,7 +16,8 @@ const Header = () =>{
     },[screenWidth]);
     return(
         <div className='header'>
-            {(window.innerWidth <= 1000) && <img className='menu' src='images/menu.png'/>}
+            {(window.innerWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='images/menu.png'/>}
+            {toShowMobileMenu===true && <MobileMenu toogleShow={toogleToShowMobileMenu}/>}
             <Link to='/'>
                 <img className='logo' src='images/logo.jpg'/>
             </Link>

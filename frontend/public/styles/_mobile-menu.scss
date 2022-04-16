@@ -1,0 +1,45 @@
+
+.mobile-menu{
+    width: 30vw;
+    position: absolute;
+    z-index: 1;
+    left:0;
+    top:7.5%;
+    background-color: white;
+    .categorie-holder{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .mobile-categorie{
+            width: 15vw;
+            display: block;
+            color:black;
+            &:hover{
+                background-color: rgb(95, 94, 94);
+                color:white;
+            }
+        }
+    }
+}
+
+@media all and (max-width:600px){
+    .mobile-menu{
+        width: 50vw;
+        .categorie-holder{
+            .mobile-categorie{
+                width: 25vw;
+            }
+        }
+    }
+}
+
+@media all and (max-width:450px){
+    .mobile-menu{
+        width: 70vw;
+        .categorie-holder{
+            .mobile-categorie{
+                width: 35vw;
+            }
+        }
+    }
+}

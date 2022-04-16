@@ -10,7 +10,6 @@ function Home() {
         fetch('http://localhost:5000/getSales')
         .then(response => response.json())
         .then((data)=>{
-            console.log(data.data);
             setIsLoaded(true);
             setProducts(data.data);
         })

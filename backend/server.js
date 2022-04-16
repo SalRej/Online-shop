@@ -13,11 +13,8 @@ app.use(cors());
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
 
-// create a GET route
-
 const getSales = require('./routes/getSales');
+const getCategorie  = require('./routes/getCategorie');
 
-app.get("/test",(req,res)=>{
-  res.send(JSON.stringify({test:"test route"}));
-})
 app.use("/getSales",getSales);
+app.use("/getCategorie",getCategorie);

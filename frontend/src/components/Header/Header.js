@@ -12,15 +12,17 @@ const Header = () =>{
     return(
         <div className='header'>
             {(window.innerWidth <= 1000) && <img className='menu' src='images/menu.png'/>}
-            <img className='logo' src='images/logo.jpg'/>
-            <Link to='/men'>
+            <Link to='/'>
+                <img className='logo' src='images/logo.jpg'/>
+            </Link>
+            <Link to='/mens'>
                 <div className='categorie'>
                     <p>
                         Men
                     </p>
                 </div>
             </Link>
-            <Link to='/women'>
+            <Link to='/womens'>
                 <div className='categorie'>
                     <p>Women</p>
                 </div>

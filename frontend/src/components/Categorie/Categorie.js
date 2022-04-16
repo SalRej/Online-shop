@@ -22,11 +22,13 @@ function Categorie() {
     <div>
         {
             isLoaded===true &&
-            <div>
+            <div className='categorie-heading'>
+                <div className='description'>
+                    <h1>{mainCategorie.name}</h1>
+                    <h3>{mainCategorie.page_title}</h3>
+                    <h4>{mainCategorie.page_description}</h4>
+                </div>
                 <img src={`images/${mainCategorie.image}`}></img>
-                <h1>{mainCategorie.name}</h1>
-                <h3>{mainCategorie.page_description}</h3>
-                <h4>{mainCategorie.page_title}</h4>
             </div>
         }
         {

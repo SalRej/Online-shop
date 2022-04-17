@@ -1,0 +1,17 @@
+.products-heading{
+    width: 80vw;
+    margin:auto;
+    margin-top:2em;
+    display: flex;
+    justify-content: space-between;
+}
+.cards-holder{
+    
+    width: 80vw;
+    margin:auto;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 2.5em;
+    grid-row-gap:1em;
+}

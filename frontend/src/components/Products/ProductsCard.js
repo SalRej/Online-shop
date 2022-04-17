@@ -8,19 +8,17 @@ function ProductsCard(props) {
         }
     })
 
-    console.log(imageGroups);
     return (
-    <div>
-        <img src={`/images/${imgLink}`}/>
-        <p>{props.data.name}</p>
-        <p>{props.data.price}</p>
-        <p>{props.data.currency}</p>
-        {
-            imageGroups.map(item=>{
-                return(<img src={`/images/${item.images[0].link}`}/>)
-            })
-        }
-    </div>
+        <div className='card'>
+            <img className='main-image'src={`/images/${imgLink}`}/>
+            <p className='name'>{props.data.name}</p>
+            <p className='price'>{props.data.price} {props.data.currency}</p>
+            {
+                imageGroups.map(item=>{
+                    return(<img className='swatch' key={item.variation_value} src={`/images/${item.images[0].link}`}/>)
+                })
+            }
+        </div>
     )
 }
 

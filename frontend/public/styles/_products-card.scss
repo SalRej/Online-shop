@@ -1,0 +1,21 @@
+.cards-holder{
+
+    .card{
+        width: 100%;
+        .main-image{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .swatch{
+            width: 1em;
+            height: 1em;
+            margin-right:0.2em;
+        }
+        .price{
+            font-weight: bold;
+        }
+        .name{
+            color:rgb(132, 132, 132);
+        }
+    }
+}

@@ -427,6 +427,7 @@
 
 .mobile-menu:last-child {
   margin-bottom: 2em;
+  border-bottom: 0px none;
 }
 
 @media all and (max-width: 600px) {
@@ -445,5 +446,52 @@
   .mobile-menu .categorie-holder .mobile-categorie {
     width: 35vw;
   }
+}
+
+.products-heading {
+  width: 80vw;
+  margin: auto;
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cards-holder {
+  width: 80vw;
+  margin: auto;
+  min-height: 90vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 2.5em;
+  grid-row-gap: 1em;
+}
+
+.cards-holder .card {
+  width: 100%;
+}
+
+.cards-holder .card .main-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.cards-holder .card .swatch {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+}
+
+.cards-holder .card .price {
+  font-weight: bold;
+}
+
+.cards-holder .card .name {
+  color: #848484;
 }
 /*# sourceMappingURL=styles.css.map */

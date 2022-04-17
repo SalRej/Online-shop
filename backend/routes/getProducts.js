@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Products = require('../models/Product');
-
+const Categories = require('../models/Categories');
 router.get('/',async (req,res)=>{
     const queryParam = req.query.productsType;
     const result = await Products.find({primary_category_id:queryParam});
-
+    
     res.send(JSON.stringify({data:result}));
 })
 

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import {useParams, useSearchParams} from 'react-router-dom';
 import ProductsCard from './ProductsCard';
-import Filters from './Filters';
+import FiltersMenu from './FiltersMenu';
 function Products() {
 
     const [isLoaded,setIsLoaded] = useState(false);
+    const [showFilters,setShowFilters] = useState(false);
+
     const [products,setProducts] = useState();
     const {productsType} = useParams();
     
@@ -12,6 +14,9 @@ function Products() {
     const [searchParams] = useSearchParams();
     const name = searchParams.get('name');
 
+    const toogleShowFilters = () =>{
+        setShowFilters((prev)=>!prev);
+    }
     useEffect(()=>{
         fetch(`http://localhost:5000/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
@@ -25,7 +30,7 @@ function Products() {
         <div>
             <div className='products-heading'>
                 <h2>{name}</h2>
-                <Filters />
+                <FiltersMenu showFilters={showFilters} toogleShowFilters={toogleShowFilters} />
             </div>
             <div className='cards-holder'>
                 {

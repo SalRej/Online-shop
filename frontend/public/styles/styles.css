@@ -510,6 +510,12 @@
 }
 
 .filters-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid lightgray;
   border-radius: 10px;
   padding-right: 1em;
@@ -518,5 +524,95 @@
   padding-bottom: 0.5em;
   cursor: pointer;
   margin-bottom: 0.5em;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.filters-button img {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 0.5em;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.filters-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.filters-button:hover img {
+  content: url("/images/filter-white.png");
+}
+
+.filters {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: absolute;
+  width: 25vw;
+  height: 100vh;
+  background-color: white;
+  top: 0;
+  right: 0;
+}
+
+.filters .heading {
+  width: 100%;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+.filters .heading h2 {
+  margin: auto;
+  font-weight: normal;
+}
+
+.filters .heading img {
+  width: 5%;
+  height: auto;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-right: 5%;
+  padding: 5%;
+}
+
+.filters .heading img:hover {
+  background-color: #e4e3e3;
+  cursor: pointer;
+}
+
+.filters .holder {
+  border-bottom: 1px solid rgba(211, 211, 211, 0.308);
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.filters .holder:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+@media all and (max-width: 900px) {
+  .filters {
+    width: 35vw;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .filters {
+    width: 45vw;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

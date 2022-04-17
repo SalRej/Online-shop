@@ -16,10 +16,10 @@ const Header = () =>{
     },[screenWidth]);
     return(
         <div className='header'>
-            {(window.innerWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='images/menu.png'/>}
+            {(window.innerWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='/images/menu.png'/>}
             {toShowMobileMenu===true && <MobileMenu toogleShow={toogleToShowMobileMenu}/>}
             <Link to='/'>
-                <img className='logo' src='images/logo.jpg'/>
+                <img className='logo' src='/images/logo.jpg'/>
             </Link>
             <Link to='/mens'>
                 <div className='categorie'>
@@ -35,12 +35,12 @@ const Header = () =>{
             </Link>
             <div className='search-bar-holder'>
                 <input className='search-bar' placeholder='Search for items and brands'/>
-                <img src='images/search.png' className='search-icon'/>
+                <img src='/images/search.png' className='search-icon'/>
             </div>
             {(window.innerWidth <= 700) && <img className='search-icon' src='images/search-mobile.png' />}
-            <img src='images/user.png'/>
-            <img src='images/love.png'/>
-            <img src='images/shopping-bag.png'/>
+            <img src='/images/user.png'/>
+            <img src='/images/love.png'/>
+            <img src='/images/shopping-bag.png'/>
         </div>
     )
 }

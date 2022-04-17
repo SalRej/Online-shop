@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 function CategorieCard(props) {
-    console.log(props);
   return (
     <div className='categorie-card-container'>
         <Link to={props.categorie.id}>

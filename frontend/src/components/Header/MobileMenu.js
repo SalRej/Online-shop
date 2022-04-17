@@ -30,10 +30,12 @@ function MobileMenu(props) {
         </div>
         {isLoaded===true &&  categories.categories.map(item=>{
             return (
-                <div className='categorie-info'>
-                    <p>{item.name}</p>
-                    <img src={`images/${item.image}`}/>
-                </div>
+                <Link key={item.id} to={`/${mainCategorie}/${item.id}`}>
+                    <div className='categorie-info'>
+                        <p>{item.name}</p>
+                        <img src={`/images/${item.image}`}/>
+                    </div>
+                </Link>
             )
         })}
     </div>

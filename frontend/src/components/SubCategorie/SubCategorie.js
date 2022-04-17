@@ -10,7 +10,6 @@ function SubCategorie() {
         fetch(`http://localhost:5000/getSubCategorie?subCategorie=${subCategorie}`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             setIsLoaded(true);
             setSubCategories(data.data);
         })
@@ -19,7 +18,7 @@ function SubCategorie() {
         <div>
             {
               isLoaded &&  subCategories.categories.map(item=>{
-                    return <CategorieCard categorie={item}/>
+                    return <CategorieCard key={item.id} categorie={item}/>
                 })
             }    
         </div>

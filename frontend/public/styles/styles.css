@@ -508,4 +508,15 @@
 .cards-holder .card .name {
   color: #848484;
 }
+
+.filters-button {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-right: 1em;
+  padding-left: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
 /*# sourceMappingURL=styles.css.map */

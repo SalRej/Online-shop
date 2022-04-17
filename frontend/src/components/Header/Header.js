@@ -16,7 +16,7 @@ const Header = () =>{
             setScreenWidth(window.innerWidth);
         })
     },[]);
-    console.log(screenWidth);
+    
     return(
         <div className='header'>
             {(screenWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='/images/menu.png'/>}

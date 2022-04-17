@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams, useSearchParams} from 'react-router-dom';
 import ProductsCard from './ProductsCard';
+import Filters from './Filters';
 function Products() {
 
     const [isLoaded,setIsLoaded] = useState(false);
@@ -24,7 +25,7 @@ function Products() {
         <div>
             <div className='products-heading'>
                 <h2>{name}</h2>
-                <p>Filters</p>
+                <Filters />
             </div>
             <div className='cards-holder'>
                 {

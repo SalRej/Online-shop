@@ -6,6 +6,7 @@ const Header = () =>{
 
     const [screenWidth,setScreenWidth] = useState(0);
     const [toShowMobileMenu,setToShowMobileMenu] = useState(false);
+
     const toogleToShowMobileMenu = () =>{
         setToShowMobileMenu((prev)=>!prev);
     }
@@ -13,10 +14,11 @@ const Header = () =>{
         window.addEventListener("resize",()=>{
             setScreenWidth(window.innerWidth);
         })
-    },[screenWidth]);
+    },[]);
+
     return(
         <div className='header'>
-            {(window.innerWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='/images/menu.png'/>}
+            {(screenWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='/images/menu.png'/>}
             {toShowMobileMenu===true && <MobileMenu toogleShow={toogleToShowMobileMenu}/>}
             <Link to='/'>
                 <img className='logo' src='/images/logo.jpg'/>

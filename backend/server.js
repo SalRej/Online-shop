@@ -16,7 +16,9 @@ app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
 const getSales = require('./routes/getSales');
 const getCategorie  = require('./routes/getCategorie');
 const getSubCategorie = require('./routes/getSubCategorie');
+const getProducts = require('./routes/getProducts');
 
 app.use("/getSales",getSales);
 app.use("/getCategorie",getCategorie);
 app.use("/getSubCategorie",getSubCategorie);
+app.use("/getProducts",getProducts);

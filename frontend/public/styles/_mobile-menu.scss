@@ -6,6 +6,7 @@
     left:0;
     top:7.5%;
     background-color: white;
+    border: 1px solid black;
     .categorie-holder{
         display: flex;
         justify-content: center;
@@ -36,13 +37,13 @@
             object-fit: contain;
             margin:auto;
         }
-        &:last-child{
-            margin-bottom:2em;
-        }
         &:hover{
             background-color:rgb(170,170,170);
             cursor: pointer;
         }
+    }
+    &:last-child{
+        margin-bottom:2em;
     }
 }
 

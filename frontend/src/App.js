@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Categorie from "./components/Categorie/Categorie";
 import SubCategorie from "./components/SubCategorie/SubCategorie";
+import Products from "./components/Products/Products";
 import {
   BrowserRouter as Router , Routes , Route
 } from "react-router-dom";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/:categorie" element={<Categorie />}></Route>
           <Route path="/:categorie/:subCategorie" element={<SubCategorie />}></Route>
+          <Route path="/:categorie/:subCategorie/:productsType" element={<Products />}></Route>
         </Routes>
         <Footer/>
     </Router>

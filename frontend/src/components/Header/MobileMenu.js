@@ -11,7 +11,6 @@ function MobileMenu(props) {
         .then(data=>{
             setCategories(data[0]);
             setIsLoaded(true);
-            console.log(data[0]);
         })
     },[mainCategorie]);
 

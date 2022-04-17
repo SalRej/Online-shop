@@ -4,18 +4,19 @@ import MobileMenu from './MobileMenu';
 
 const Header = () =>{
 
-    const [screenWidth,setScreenWidth] = useState(0);
+    const [screenWidth,setScreenWidth] = useState();
     const [toShowMobileMenu,setToShowMobileMenu] = useState(false);
 
     const toogleToShowMobileMenu = () =>{
         setToShowMobileMenu((prev)=>!prev);
     }
     useEffect(()=>{
+        setScreenWidth(window.innerWidth);
         window.addEventListener("resize",()=>{
             setScreenWidth(window.innerWidth);
         })
     },[]);
-
+    console.log(screenWidth);
     return(
         <div className='header'>
             {(screenWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='/images/menu.png'/>}

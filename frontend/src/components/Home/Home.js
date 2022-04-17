@@ -6,7 +6,6 @@ function Home() {
     const [isLoaded,setIsLoaded] = useState(false);
 
     useEffect(()=>{
-        //fetch data;
         fetch('http://localhost:5000/getSales')
         .then(response => response.json())
         .then((data)=>{
@@ -31,7 +30,7 @@ function Home() {
                                     <p>{item.name}</p>
                                 </div>
                             </Link>
-                    )
+                        )
                     })
                 } 
             </div>

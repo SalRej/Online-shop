@@ -15,13 +15,17 @@ function Products() {
             setIsLoaded(true);
         });
     },[])
+
     return (
         <div>
-            {
-                isLoaded && products.map(item=>{
-                    return <ProductsCard data={item}/>;
-                })
-            }
+            <p>Filters</p>
+            <div className='cards-holder'>
+                {
+                    isLoaded && products.map(item=>{
+                        return <ProductsCard data={item}/>;
+                    })
+                }
+            </div>
         </div>
     )
 }

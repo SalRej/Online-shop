@@ -18,7 +18,7 @@ function MobileMenu(props) {
     <div className='mobile-menu'>
 
         <div className='categorie-holder'>
-            <div onClick={()=>{setMaincategorie('mens')}}className='mobile-categorie'>
+            <div onClick={()=>{setMaincategorie('mens')}} className='mobile-categorie'>
                 <p>
                     Men
                 </p>
@@ -30,7 +30,7 @@ function MobileMenu(props) {
         {isLoaded===true &&  categories.categories.map(item=>{
             return (
                 <Link key={item.id} to={`/${mainCategorie}/${item.id}`}>
-                    <div className='categorie-info'>
+                    <div onClick={()=>{ props.toogleShow() }}className='categorie-info'>
                         <p>{item.name}</p>
                         <img src={`/images/${item.image}`}/>
                     </div>

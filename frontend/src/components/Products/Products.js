@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom';
-
+import ProductsCard from './ProductsCard';
 function Products() {
 
     const [isLoaded,setIsLoaded] = useState(false);
@@ -11,14 +11,17 @@ function Products() {
         fetch(`http://localhost:5000/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
         .then((data)=>{
-            console.log(data.data);
             setProducts(data.data);
             setIsLoaded(true);
         });
     },[])
     return (
         <div>
-            
+            {
+                isLoaded && products.map(item=>{
+                    return <ProductsCard data={item}/>;
+                })
+            }
         </div>
     )
 }

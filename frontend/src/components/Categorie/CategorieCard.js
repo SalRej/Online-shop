@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function CategorieCard(props) {
   return (
     <div className='categorie-card-container'>
-        <Link to={`${props.categorie.id}?name=${props.categorie.name}&&title=${props.categorie.page_title}`}>
+        <Link to={`${props.categorie.id}?name=${props.categorie.name}`}>
             <h3>{props.categorie.name}</h3>
             <h4>{props.categorie.page_title}</h4>
             <img src={`/images/${props.categorie.image}`}/>

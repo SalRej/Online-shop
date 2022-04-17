@@ -10,7 +10,6 @@ function Products() {
     //takes the params from query string
     const [searchParams] = useSearchParams();
     const name = searchParams.get('name');
-    const title = searchParams.get('title');
 
     useEffect(()=>{
         fetch(`http://localhost:5000/getProducts?productsType=${productsType}`)

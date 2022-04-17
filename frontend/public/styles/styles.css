@@ -472,6 +472,20 @@
   grid-row-gap: 1em;
 }
 
+@media all and (max-width: 850px) {
+  .cards-holder {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media all and (max-width: 600px) {
+  .cards-holder {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .cards-holder .card {
   width: 100%;
 }

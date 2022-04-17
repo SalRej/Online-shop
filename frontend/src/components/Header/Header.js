@@ -40,7 +40,7 @@ const Header = () =>{
                 <input className='search-bar' placeholder='Search for items and brands'/>
                 <img src='/images/search.png' className='search-icon'/>
             </div>
-            {(window.innerWidth <= 700) && <img className='search-icon' src='images/search-mobile.png' />}
+            {(window.innerWidth <= 700) && <img className='search-icon' src='/images/search-mobile.png' />}
             <img src='/images/user.png'/>
             <img src='/images/love.png'/>
             <img src='/images/shopping-bag.png'/>

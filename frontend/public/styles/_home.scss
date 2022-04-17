@@ -38,22 +38,21 @@
             background-color:white;
             width: 12vw;
             height: 20vw;
-            border-radius: 15px;
+            border-radius: 5px;
             .image-container{
                 width: 100%;
                 height: 85%;
                 border-radius: 15px;
                 img{
-                    border-top-left-radius: 15px;
-                    border-top-right-radius: 15px;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
                     width: 100%;
                     height: 100%;
-                    object-fit:contain;
+                    object-fit:cover;
                 }
             }
             p{
                 border-radius: 15px;
-                background-color:aliceblue;
                 color:black;
                 font-weight: 600;
                 font-size:1vw;

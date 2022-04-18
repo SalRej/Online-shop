@@ -705,4 +705,33 @@
   text-decoration: underline;
   color: coral;
 }
+
+@media all and (max-width: 750px) {
+  .price-filter .slider-holder input {
+    width: 50%;
+    height: 9px;
+  }
+  .price-filter .slider-holder input::-webkit-slider-thumb {
+    width: 20px;
+    /* Set a specific slider handle width */
+    height: 20px;
+    /* Slider handle height */
+  }
+}
+
+@media all and (max-width: 450px) {
+  .price-filter .slider-holder input {
+    width: 50%;
+    height: 9px;
+  }
+  .price-filter .slider-holder input::-webkit-slider-thumb {
+    width: 20px;
+    /* Set a specific slider handle width */
+    height: 20px;
+    /* Slider handle height */
+  }
+  .price-filter .slider-holder p {
+    font-size: 0.6em;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

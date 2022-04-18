@@ -12,7 +12,9 @@
         "_products.scss",
         "_products-card.scss",
         "_filters.scss",
-        "_filters-price.scss"
+        "_filters-price.scss",
+        "_filters-color.scss",
+        "_filters-size.scss"
     ],
     "names": [],
     "file": "styles.css"

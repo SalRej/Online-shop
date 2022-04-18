@@ -563,8 +563,8 @@
 }
 
 .filters {
-  -webkit-animation: appear-filters 1s;
-          animation: appear-filters 1s;
+  -webkit-animation: appear-filters 0.7s;
+          animation: appear-filters 0.7s;
   -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: absolute;
@@ -657,6 +657,52 @@
   position: relative;
   -webkit-animation: appear 1s;
           animation: appear 1s;
-  margin-left: 10%;
+  padding-top: 1em;
+  border: 1px solid rgba(141, 141, 141, 0.407);
+}
+
+.price-filter .slider-holder {
+  margin-top: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-bottom: 0.5em;
+}
+
+.price-filter .slider-holder input {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
+  background-color: #f6f6f6;
+  width: 60%;
+  height: 15px;
+  border-radius: 25px;
+  border: solid 1px rgba(190, 190, 190, 0.452);
+}
+
+.price-filter .slider-holder input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  width: 25px;
+  /* Set a specific slider handle width */
+  height: 25px;
+  /* Slider handle height */
+  background: #3c3c3cf0;
+  /* Green background */
+  cursor: pointer;
+  /* Cursor on hover */
+  border-radius: 50%;
+}
+
+.price-filter .slider-holder p {
+  width: 10%;
+}
+
+.price-filter .current-price {
+  text-align: center;
+  text-decoration: underline;
+  color: coral;
 }
 /*# sourceMappingURL=styles.css.map */

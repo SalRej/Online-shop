@@ -8,13 +8,13 @@ function PriceFilter(props) {
   }
   return (
     <div className='price-filter'>
-      <div style={{display:"flex"}}>
+      <p className='current-price'>{currcentPrice}</p>
+      <div className='slider-holder'>
         <p>{props.price.minPrice}</p>
         <input onChange={handleChange} value={currcentPrice}
           type="range" min={props.price.minPrice} max={props.price.maxPrice}/>
         <p>{props.price.maxPrice}</p>
       </div>
-      <p>{currcentPrice}</p>
     </div>
   )
 }

@@ -8,7 +8,7 @@ function FiltersMenu(props) {
     const [showPriceFilter,setShowPriceFilter] = useState(false);
     const [showColorFilter,setShowColorFilter] = useState(false);
     const [showSizeFilter,setShowSizeFilter] = useState(false);
-
+   
     return (
     <div>
         <div onClick = {()=>{props.toogleShowFilters()}}className='filters-button'>
@@ -24,7 +24,7 @@ function FiltersMenu(props) {
                 </div>
                 <div onClick={()=>{setShowPriceFilter((prev)=>!prev)}} className='holder'>Price</div>
                 {
-                    showPriceFilter && <PriceFilter />
+                    showPriceFilter && <PriceFilter price={props.price}/>
                 }
                 <div onClick={()=>{setShowColorFilter((prev)=>!prev)}} className='holder'>Color</div>
                 {

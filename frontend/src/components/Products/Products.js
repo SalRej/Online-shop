@@ -6,8 +6,10 @@ function Products() {
 
     const [isLoaded,setIsLoaded] = useState(false);
     const [showFilters,setShowFilters] = useState(false);
-
     const [products,setProducts] = useState();
+
+    const [price,setPrice] = useState({minPrice:0,maxPrice:0});
+
     const {productsType} = useParams();
     
     //takes the params from query string
@@ -21,6 +23,13 @@ function Products() {
         fetch(`http://localhost:5000/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
         .then((data)=>{
+            setPrice((prev)=>{
+                return {
+                    ...prev,
+                    minPrice:data.minPrice,
+                    maxPrice:data.maxPrice
+                }
+            })
             setProducts(data.data);
             setIsLoaded(true);
         });
@@ -30,7 +39,11 @@ function Products() {
         <div>
             <div className='products-heading'>
                 <h2>{name}</h2>
-                <FiltersMenu showFilters={showFilters} toogleShowFilters={toogleShowFilters} />
+                <FiltersMenu 
+                    showFilters={showFilters} 
+                    toogleShowFilters={toogleShowFilters}
+                    price={price}
+                />
             </div>
             <div className='cards-holder'>
                 {

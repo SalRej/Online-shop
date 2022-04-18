@@ -544,7 +544,27 @@
   content: url("/images/filter-white.png");
 }
 
+@-webkit-keyframes appear-filters {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0%;
+  }
+}
+
+@keyframes appear-filters {
+  from {
+    top: 100%;
+  }
+  to {
+    top: 0%;
+  }
+}
+
 .filters {
+  -webkit-animation: appear-filters 1s;
+          animation: appear-filters 1s;
   -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: absolute;
@@ -613,5 +633,30 @@
   .filters {
     width: 45vw;
   }
+}
+
+@-webkit-keyframes appear {
+  from {
+    left: 100px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes appear {
+  from {
+    left: 100px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.price-filter {
+  position: relative;
+  -webkit-animation: appear 1s;
+          animation: appear 1s;
+  margin-left: 10%;
 }
 /*# sourceMappingURL=styles.css.map */

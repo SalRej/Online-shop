@@ -1,7 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
+import PriceFilter from './PriceFilter';
 
 function FiltersMenu(props) {
-  return (
+
+    const [showPriceFilter,setShowPriceFilter] = useState(false);
+    return (
     <div>
         <div onClick = {()=>{props.toogleShowFilters()}}className='filters-button'>
             <img src='/images/filter.png'/>
@@ -14,13 +17,16 @@ function FiltersMenu(props) {
                     <h2>Filters</h2>
                     <img onClick = {()=>{props.toogleShowFilters()}}src='/images/close.png' className='close-icon'/>
                 </div>
-                <div className='holder'>Price</div>
+                <div on onClick={()=>{setShowPriceFilter((prev)=>!prev)}} className='holder'>Price</div>
+                {
+                    showPriceFilter && <PriceFilter />
+                }
                 <div className='holder'>Color</div>
                 <div className='holder'>Size</div>
             </div>
         }
     </div>
-  )
+    )
 }
 
 export default FiltersMenu;

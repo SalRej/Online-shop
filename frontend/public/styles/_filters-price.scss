@@ -1,0 +1,12 @@
+@keyframes appear{
+    from{
+        left:100px;
+    }to{
+        left:0px;
+    }
+}
+.price-filter{
+    position:relative;
+    animation:appear 1s;
+    margin-left:10%;
+}

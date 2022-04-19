@@ -1,0 +1,91 @@
+
+.color-filter{
+    animation: appear 1s;
+    display: flex;
+    padding-left:10%;
+    padding-right:10%;
+    
+    padding-top:5%;
+    padding-bottom: 5%;
+    flex-wrap: wrap;
+    input[type="checkbox"]{
+        display: none;
+    }
+    label:before {
+        background-color: white;
+        color: white;
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 1px solid grey;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        line-height: 28px;
+        transition-duration: 0.4s;
+        transform: scale(0);
+        z-index: 2;
+    }
+    :checked + label div{
+        transform: scale(0.9);
+        z-index: -1;
+    }
+    :checked + label{
+        border:1px solid rgba(0, 0, 0, 0.31);
+        border-radius: 5px;
+    }
+    :checked + label:before {
+        content: "✓";
+        background-color: grey;
+        transform: scale(0.5);
+    }      
+    label{
+        position: relative;
+        cursor: pointer;
+        width: 2em;
+        height: 2em;
+        margin-right:0.5em;
+        margin-bottom:0.5em;
+        div{
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .green{
+            background-color: green;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .black{
+            background-color: black;
+        }
+        .white{
+            border:1px solid
+        }
+        .pink{
+            background-color: pink;
+        }
+        .violet{
+            background-color: violet;
+        }
+        .all{
+            background: rgb(149,224,145);
+background: linear-gradient(90deg, rgba(149,224,145,1) 0%, rgba(255,160,7,1) 100%);
+        }
+    }
+}

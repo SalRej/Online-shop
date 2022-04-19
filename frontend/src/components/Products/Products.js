@@ -7,6 +7,7 @@ function Products() {
     const [isLoaded,setIsLoaded] = useState(false);
     const [showFilters,setShowFilters] = useState(false);
     const [products,setProducts] = useState();
+    const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});
 
     const [price,setPrice] = useState({minPrice:0,maxPrice:0});
     const [avaibleSizes,setAvaibleSizes] = useState();
@@ -19,6 +20,26 @@ function Products() {
     const toogleShowFilters = () =>{
         setShowFilters((prev)=>!prev);
     }
+    const handleSetFilterValues = (e) =>{
+        if(e.target.type === "range"){
+            setFilterValues((prev)=>{
+                return({
+                    ...prev,
+                    price:e.target.value
+                })
+            })
+        }else if(e.target.type==='checkbox'){
+            const value = e.target.value;
+            setFilterValues((prev)=>{
+                return({
+                    ...prev,
+                    [e.target.name]:[...prev[e.target.name],value]
+                })
+            })
+        }
+        console.log(filterValues)
+    }
+
     useEffect(()=>{
         fetch(`/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
@@ -45,6 +66,8 @@ function Products() {
                     toogleShowFilters={toogleShowFilters}
                     price={price}
                     avaibleSizes={avaibleSizes}
+                    filterValues={filterValues}
+                    handleSetFilterValues={handleSetFilterValues}
                 />
             </div>
             <div className='cards-holder'>

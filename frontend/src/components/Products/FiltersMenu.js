@@ -23,15 +23,28 @@ function FiltersMenu(props) {
                 </div>
                 <div onClick={()=>{setShowPriceFilter((prev)=>!prev)}} className='holder'>Price</div>
                 {
-                    showPriceFilter && <PriceFilter price={props.price}/>
+                    showPriceFilter &&
+                    <PriceFilter price={props.price}
+                        filterValues={props.filterValues}
+                        handleSetFilterValues={props.handleSetFilterValues}
+                    />
                 }
                 <div onClick={()=>{setShowColorFilter((prev)=>!prev)}} className='holder'>Color</div>
                 {
-                    showColorFilter && <ColorFilter />
+                    showColorFilter &&
+                     <ColorFilter
+                        filterValues={props.filterValues}
+                        handleSetFilterValues={props.handleSetFilterValues}
+                    />
                 }
                 <div onClick={()=>{setShowSizeFilter((prev)=>!prev)}} className='holder'>Size</div>
                 {
-                    showSizeFilter && <SizeFilter avaibleSizes={props.avaibleSizes}/>
+                    showSizeFilter && 
+                    <SizeFilter 
+                        avaibleSizes={props.avaibleSizes}
+                        filterValues={props.filterValues}
+                        handleSetFilterValues={props.handleSetFilterValues}
+                    />
                 }
             </div>
         }

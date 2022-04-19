@@ -1,15 +1,18 @@
 import React from 'react'
 
-function ColorFilter() {
+function ColorFilter(props) {
 
   const colors =['grey','red','blue','green','yellow','orange','black','white','pink','violet','all'];
+  const handleChange = (e) =>{
+    props.handleSetFilterValues(e);
+  }
   return (
     <div className='color-filter my-checkbox'>
         {
           colors.map((color,index)=>{
             return(
               <React.Fragment key={index}>
-                <input id={color} type='checkbox' value={color} name='color'/>
+                <input onChange={handleChange} id={color} type='checkbox' value={color} name='color'/>
                 <label htmlFor={color}>
                   <div className={`color-box ${color}`}></div>
                 </label>

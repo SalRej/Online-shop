@@ -1,13 +1,16 @@
 import React from 'react'
 
 function SizeFilter(props) {
+  const handleChange = (e) =>{
+    props.handleSetFilterValues(e);
+  }
   return (
     <div className='size-filter my-checkbox'>
       {
           props.avaibleSizes.map((size,index)=>{
             return(
               <React.Fragment key={index}>
-                <input id={size.name} type='checkbox' value={size.value} name='size'/>
+                <input onChange = {handleChange} id={size.name} type='checkbox' value={size.value} name='size'/>
                 <label htmlFor={size.name}>
                   <div className={`size-box`}>
                     {size.name}

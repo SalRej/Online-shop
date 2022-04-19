@@ -8,7 +8,7 @@ function PriceFilter(props) {
   }
   return (
     <div className='price-filter'>
-      <p className='current-price'>{currcentPrice}</p>
+      <p className='current-price'>{currcentPrice}$</p>
       <div className='slider-holder'>
         <p>{props.price.minPrice}</p>
         <input onChange={handleChange} value={currcentPrice}

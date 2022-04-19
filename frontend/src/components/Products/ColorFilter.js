@@ -2,7 +2,7 @@ import React from 'react'
 
 function ColorFilter() {
 
-  const colors =['red','blue','green','yellow','orange','black','white','pink','violet','all'];
+  const colors =['grey','red','blue','green','yellow','orange','black','white','pink','violet','all'];
   return (
     <div className='color-filter'>
         {
@@ -11,7 +11,7 @@ function ColorFilter() {
               <>
                 <input id={color} type='checkbox' value={color} name='color'/>
                 <label for={color}>
-                  <div className={`color-box ${color}`}></div>
+                  <div className={`color-box ${color}`} data-color={color}></div>
                 </label>
               </>
             )

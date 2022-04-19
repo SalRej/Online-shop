@@ -85,8 +85,13 @@
         width: 35vw;
     }
 }
-@media all and (max-width:500px){
+@media all and (max-width:600px){
     .filters{
         width: 45vw;
+    }
+}
+@media all and (max-width:600px){
+    .filters{
+        width: 65vw;
     }
 }

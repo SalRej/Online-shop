@@ -6,7 +6,7 @@ function MobileMenu(props) {
     const [mainCategorie,setMaincategorie] = useState('mens');
     const [categories,setCategories] = useState();
     useEffect(()=>{
-        fetch(`http://localhost:5000/getCategorie?categorie=${mainCategorie}`)
+        fetch(`/getCategorie?categorie=${mainCategorie}`)
         .then(res=>res.json())
         .then(data=>{
             setCategories(data[0]);

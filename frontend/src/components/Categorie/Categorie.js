@@ -8,7 +8,7 @@ function Categorie() {
     const [isLoaded,setIsLoaded] = useState(false);
     const [mainCategorie,setMaincategorie] = useState();
     useEffect(()=>{
-        fetch(`http://localhost:5000/getCategorie?categorie=${categorie}`)
+        fetch(`/getCategorie?categorie=${categorie}`)
         .then(res=>res.json())
         .then(data=>{
             setMaincategorie(data[0]);

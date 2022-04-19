@@ -7,7 +7,7 @@ function SubCategorie() {
     const [subCategories,setSubCategories] = useState();
     const [isLoaded,setIsLoaded] = useState(false);
     useEffect(()=>{
-        fetch(`http://localhost:5000/getSubCategorie?subCategorie=${subCategorie}`)
+        fetch(`/getSubCategorie?subCategorie=${subCategorie}`)
         .then(res=>res.json())
         .then(data=>{
             setIsLoaded(true);

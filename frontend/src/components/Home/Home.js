@@ -6,7 +6,7 @@ function Home() {
     const [isLoaded,setIsLoaded] = useState(false);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/getSales')
+        fetch('/getSales')
         .then(response => response.json())
         .then((data)=>{
             setIsLoaded(true);

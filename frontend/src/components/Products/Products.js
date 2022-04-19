@@ -20,7 +20,7 @@ function Products() {
         setShowFilters((prev)=>!prev);
     }
     useEffect(()=>{
-        fetch(`http://localhost:5000/getProducts?productsType=${productsType}`)
+        fetch(`/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
         .then((data)=>{
             setPrice((prev)=>{

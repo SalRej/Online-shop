@@ -570,7 +570,7 @@
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: absolute;
   width: 25vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: white;
   top: 0;
   right: 0;
@@ -743,8 +743,6 @@
 }
 
 .color-filter {
-  -webkit-animation: appear 1s;
-          animation: appear 1s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -757,6 +755,8 @@
 }
 
 .color-filter label {
+  -webkit-animation: appear 1s;
+          animation: appear 1s;
   width: 2em;
   height: 2em;
   margin-right: 0.5em;
@@ -764,9 +764,9 @@
 }
 
 .color-filter label div {
+  border-radius: 5px;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
 }
 
 .color-filter label .red {
@@ -832,11 +832,14 @@
 }
 
 .size-filter label {
+  -webkit-animation: appear 1s;
+          animation: appear 1s;
   width: 3em;
   height: 2em;
-  border: 1px solid rgba(211, 211, 211, 0.553);
   margin-right: 0.5em;
   margin-bottom: 0.5em;
+  border: 1px solid rgba(211, 211, 211, 0.553);
+  border-radius: 5px;
 }
 
 .size-filter label div {
@@ -844,6 +847,11 @@
   height: 100%;
   text-align: center;
   line-height: 2em;
+}
+
+.size-filter :checked + label {
+  border: 1px solid rgba(0, 0, 0, 0.31);
+  border-radius: 10px;
 }
 
 .my-checkbox label {

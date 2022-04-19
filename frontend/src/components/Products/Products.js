@@ -30,14 +30,28 @@ function Products() {
             })
         }else if(e.target.type==='checkbox'){
             const value = e.target.value;
-            setFilterValues((prev)=>{
-                return({
-                    ...prev,
-                    [e.target.name]:[...prev[e.target.name],value]
+            const name = e.target.name;
+            if(e.target.checked === true){
+                if(!filterValues[name].includes(value)){
+    
+                    setFilterValues((prev)=>{
+                        return({
+                            ...prev,
+                            [name]:[...prev[name],value]
+                        })
+                    })
+                }
+            }else{
+                setFilterValues((prev)=>{
+                    return{
+                        ...prev,
+                        [name]: prev[name].filter(item=>{
+                            return item !== value
+                        })
+                    }
                 })
-            })
+            }
         }
-        console.log(filterValues)
     }
 
     useEffect(()=>{
@@ -59,6 +73,9 @@ function Products() {
 
     return (
         <div>
+            {
+                        console.log(filterValues)
+            }
             <div className='products-heading'>
                 <h2>{name}</h2>
                 <FiltersMenu 

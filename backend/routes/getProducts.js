@@ -3,6 +3,16 @@ const router = express.Router();
 const Products = require('../models/Product');
 const Categories = require('../models/Categories');
 
+const arekDuplicates = (arr,values) =>{
+
+    for(item of arr){
+        if(item.name === values.name && item.value === values.value){
+            return true;
+        }
+    }
+
+    return false;
+}
 router.get('/',async (req,res)=>{
 
     //summary of what does this router do 
@@ -21,10 +31,13 @@ router.get('/',async (req,res)=>{
         item.variation_attributes.forEach(variation => {
             if(variation.name=='Size' || variation.name == 'size'){
                 variation.values.forEach(value => {
-                    avaibleSizes.push({
-                        name:value.name,
-                        value:value.value
-                    })
+
+                    if(!arekDuplicates(avaibleSizes,value)){
+                        avaibleSizes.push({
+                            name:value.name,
+                            value:value.value
+                        })  
+                    }
                 })
             }
         })
@@ -36,8 +49,6 @@ router.get('/',async (req,res)=>{
             max = item.price;
         }
     })
-
-    console.log(avaibleSizes);
     res.send(JSON.stringify({data:result,minPrice:min,maxPrice:max,avaibleSizes:avaibleSizes}));
 })
 

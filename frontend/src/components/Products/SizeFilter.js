@@ -2,7 +2,7 @@ import React from 'react'
 
 function SizeFilter(props) {
   return (
-    <div className='size-filter'>
+    <div className='size-filter my-checkbox'>
       {
           props.avaibleSizes.map((size,index)=>{
             return(

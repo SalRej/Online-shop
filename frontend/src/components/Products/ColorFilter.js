@@ -4,7 +4,7 @@ function ColorFilter() {
 
   const colors =['grey','red','blue','green','yellow','orange','black','white','pink','violet','all'];
   return (
-    <div className='color-filter'>
+    <div className='color-filter my-checkbox'>
         {
           colors.map((color,index)=>{
             return(

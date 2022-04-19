@@ -1,0 +1,22 @@
+.size-filter{
+    display: flex;
+    flex-wrap: wrap;
+    padding:5% 10% 5% 10%;
+    justify-content: center;
+    input[type='checkbox']{
+        display: none;
+    }
+    label{
+        width: 3em;
+        height: 2em;
+        border: 1px solid rgba(211, 211, 211, 0.553);
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+        div{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 2em;
+        }
+    }
+}

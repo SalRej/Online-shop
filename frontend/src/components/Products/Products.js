@@ -9,7 +9,7 @@ function Products() {
     const [products,setProducts] = useState();
 
     const [price,setPrice] = useState({minPrice:0,maxPrice:0});
-
+    const [avaibleSizes,setAvaibleSizes] = useState();
     const {productsType} = useParams();
     
     //takes the params from query string
@@ -30,6 +30,7 @@ function Products() {
                     maxPrice:data.maxPrice
                 }
             })
+            setAvaibleSizes(data.avaibleSizes);
             setProducts(data.data);
             setIsLoaded(true);
         });
@@ -43,6 +44,7 @@ function Products() {
                     showFilters={showFilters} 
                     toogleShowFilters={toogleShowFilters}
                     price={price}
+                    avaibleSizes={avaibleSizes}
                 />
             </div>
             <div className='cards-holder'>

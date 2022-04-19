@@ -11,7 +11,7 @@ function ColorFilter() {
               <>
                 <input id={color} type='checkbox' value={color} name='color'/>
                 <label for={color}>
-                  <div className={`color-box ${color}`} data-color={color}></div>
+                  <div className={`color-box ${color}`}></div>
                 </label>
               </>
             )

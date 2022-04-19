@@ -8,16 +8,15 @@ function FiltersMenu(props) {
     const [showPriceFilter,setShowPriceFilter] = useState(false);
     const [showColorFilter,setShowColorFilter] = useState(false);
     const [showSizeFilter,setShowSizeFilter] = useState(false);
-   
     return (
     <div>
-        <div onClick = {()=>{props.toogleShowFilters()}}className='filters-button'>
+        <div onClick = {()=>{props.toogleShowFilters()}} className='filters-button'>
             <img src='/images/filter.png'/>
             Filters
         </div>
         {
             props.showFilters && 
-            <div class='filters'>
+            <div className='filters'>
                 <div className='heading'>
                     <h2>Filters</h2>
                     <img onClick = {()=>{props.toogleShowFilters()}}src='/images/close.png' className='close-icon'/>
@@ -32,7 +31,7 @@ function FiltersMenu(props) {
                 }
                 <div onClick={()=>{setShowSizeFilter((prev)=>!prev)}} className='holder'>Size</div>
                 {
-                    showSizeFilter && <SizeFilter />
+                    showSizeFilter && <SizeFilter avaibleSizes={props.avaibleSizes}/>
                 }
             </div>
         }

@@ -1,8 +1,14 @@
 import React from 'react'
 
-function SizeFilter() {
+function SizeFilter(props) {
   return (
-    <div>SizeFilter</div>
+    <div>
+      {
+        props.avaibleSizes.map(item=>{
+          return(<p>{item.name}</p>)
+        })
+      }
+    </div>
   )
 }
 

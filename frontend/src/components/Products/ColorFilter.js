@@ -6,14 +6,14 @@ function ColorFilter() {
   return (
     <div className='color-filter'>
         {
-          colors.map(color=>{
+          colors.map((color,index)=>{
             return(
-              <>
+              <React.Fragment key={index}>
                 <input id={color} type='checkbox' value={color} name='color'/>
-                <label for={color}>
+                <label htmlFor={color}>
                   <div className={`color-box ${color}`}></div>
                 </label>
-              </>
+              </React.Fragment>
             )
           })
         }

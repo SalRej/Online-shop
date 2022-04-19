@@ -17,8 +17,10 @@ const getSales = require('./routes/getSales');
 const getCategorie  = require('./routes/getCategorie');
 const getSubCategorie = require('./routes/getSubCategorie');
 const getProducts = require('./routes/getProducts');
+const filterProducts = require('./routes/filterProducts');
 
 app.use("/getSales",getSales);
 app.use("/getCategorie",getCategorie);
 app.use("/getSubCategorie",getSubCategorie);
 app.use("/getProducts",getProducts);
+app.use('/filterProducts',filterProducts);

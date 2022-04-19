@@ -4,13 +4,13 @@ import ProductsCard from './ProductsCard';
 import FiltersMenu from './FiltersMenu';
 function Products() {
 
-    const [isLoaded,setIsLoaded] = useState(false);
-    const [showFilters,setShowFilters] = useState(false);
-    const [products,setProducts] = useState();
-    const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});
+    const [isLoaded,setIsLoaded] = useState(false);//cheks if page is loaded
+    const [showFilters,setShowFilters] = useState(false);//show filters menu or not
+    const [products,setProducts] = useState();//data of the products fetcher from backend
+    const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});//values to send to the server to filter
 
-    const [price,setPrice] = useState({minPrice:0,maxPrice:0});
-    const [avaibleSizes,setAvaibleSizes] = useState();
+    const [price,setPrice] = useState({minPrice:0,maxPrice:0});//min and max price
+    const [avaibleSizes,setAvaibleSizes] = useState();//stores the avaible size for the current type of products
     const {productsType} = useParams();
     
     //takes the params from query string
@@ -21,6 +21,15 @@ function Products() {
         setShowFilters((prev)=>!prev);
     }
     const handleSetFilterValues = (e) =>{
+        //what this function does
+        //1.checks the type of the input
+        //2.if its range type just update the value of price
+        //3.if its checkbox type check is it uncheck or checked value
+        //4.if its checked then check to see if it's already in the array 
+        //5.if not then add id
+        //6.if the value is unckecked then filter the array to return everythin
+        //exept the element with value === the uncked box
+
         if(e.target.type === "range"){
             setFilterValues((prev)=>{
                 return({
@@ -54,6 +63,19 @@ function Products() {
         }
     }
 
+    const filterProducts = () =>{
+        fetch(`/filterProducts?price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
+    }
+    
+    useEffect(()=>{
+        filterProducts();
+    },[filterValues])
+
+
     useEffect(()=>{
         fetch(`/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
@@ -74,7 +96,7 @@ function Products() {
     return (
         <div>
             {
-                        console.log(filterValues)
+                console.log(filterValues)
             }
             <div className='products-heading'>
                 <h2>{name}</h2>

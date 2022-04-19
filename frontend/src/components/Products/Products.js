@@ -64,10 +64,11 @@ function Products() {
     }
 
     const filterProducts = () =>{
-        fetch(`/filterProducts?price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
+        fetch(`/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
+            setProducts(data);
         })
     }
     

@@ -37,6 +37,7 @@ function Products() {
                     price:e.target.value
                 })
             })
+            setIsLoaded(false)
         }else if(e.target.type==='checkbox'){
             const value = e.target.value;
             const name = e.target.name;
@@ -49,6 +50,7 @@ function Products() {
                             [name]:[...prev[name],value]
                         })
                     })
+                    setIsLoaded(false);
                 }
             }else{
                 setFilterValues((prev)=>{
@@ -59,6 +61,7 @@ function Products() {
                         })
                     }
                 })
+                setIsLoaded(false);
             }
         }
     }
@@ -67,8 +70,8 @@ function Products() {
         fetch(`/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             setProducts(data);
+            setIsLoaded(true);
         })
     }
     
@@ -96,9 +99,6 @@ function Products() {
 
     return (
         <div>
-            {
-                console.log(filterValues)
-            }
             <div className='products-heading'>
                 <h2>{name}</h2>
                 <FiltersMenu 

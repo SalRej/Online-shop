@@ -486,7 +486,27 @@
   }
 }
 
+@-webkit-keyframes test {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes test {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
 .cards-holder .card {
+  -webkit-animation: test 2s;
+          animation: test 2s;
   width: 100%;
 }
 
@@ -564,6 +584,7 @@
 }
 
 .filters {
+  z-index: 2;
   -webkit-animation: appear-filters 0.7s;
           animation: appear-filters 0.7s;
   -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

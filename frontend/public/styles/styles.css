@@ -486,27 +486,7 @@
   }
 }
 
-@-webkit-keyframes test {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100%;
-  }
-}
-
-@keyframes test {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100%;
-  }
-}
-
 .cards-holder .card {
-  -webkit-animation: test 2s;
-          animation: test 2s;
   width: 100%;
 }
 
@@ -565,28 +545,8 @@
   content: url("/images/filter-white.png");
 }
 
-@-webkit-keyframes appear-filters {
-  from {
-    top: 100%;
-  }
-  to {
-    top: 0%;
-  }
-}
-
-@keyframes appear-filters {
-  from {
-    top: 100%;
-  }
-  to {
-    top: 0%;
-  }
-}
-
 .filters {
   z-index: 2;
-  -webkit-animation: appear-filters 0.7s;
-          animation: appear-filters 0.7s;
   -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: absolute;
@@ -663,28 +623,8 @@
   }
 }
 
-@-webkit-keyframes appear {
-  from {
-    left: 100px;
-  }
-  to {
-    left: 0px;
-  }
-}
-
-@keyframes appear {
-  from {
-    left: 100px;
-  }
-  to {
-    left: 0px;
-  }
-}
-
 .price-filter {
   position: relative;
-  -webkit-animation: appear 1s;
-          animation: appear 1s;
   padding-top: 1em;
   border: 1px solid rgba(141, 141, 141, 0.407);
 }
@@ -776,8 +716,6 @@
 }
 
 .color-filter label {
-  -webkit-animation: appear 1s;
-          animation: appear 1s;
   width: 2em;
   height: 2em;
   margin-right: 0.5em;
@@ -813,8 +751,6 @@
 }
 
 .size-filter label {
-  -webkit-animation: appear 1s;
-          animation: appear 1s;
   width: 3em;
   height: 2em;
   margin-right: 0.5em;

@@ -10,7 +10,7 @@ function PriceFilter(props) {
     setCurrentPrice(e.target.value);
   }
   return (
-    <div className='price-filter'>
+    <div className='price-filter animate__animated animate__flipInX'>
       <p className='current-price'>{currcentPrice}$</p>
       <div className='slider-holder'>
         <p>{props.price.minPrice}</p>

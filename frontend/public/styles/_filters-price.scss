@@ -1,14 +1,6 @@
-@keyframes appear{
-    from{
-        left:100px;
-    }to{
-        left:0px;
-    }
-}
 .price-filter{
     
     position:relative;
-    animation:appear 1s;
     padding-top:1em;
     border: 1px solid rgba(141, 141, 141, 0.407);
     .slider-holder{

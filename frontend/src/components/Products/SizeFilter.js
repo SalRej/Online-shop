@@ -11,7 +11,7 @@ function SizeFilter(props) {
             return(
               <React.Fragment key={index}>
                 <input onChange = {handleChange} id={size.name} type='checkbox' value={size.value} name='size'/>
-                <label htmlFor={size.name}>
+                <label htmlFor={size.name} className="animate__animated animate__flipInX">
                   <div className={`size-box`}>
                     {size.name}
                   </div>

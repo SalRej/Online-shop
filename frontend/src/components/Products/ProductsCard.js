@@ -13,7 +13,7 @@ function ProductsCard(props) {
     })
 
     return (
-        <div className='card'>
+        <div className='card animate__animated animate__fadeIn animate__delay-1'>
             <img className='main-image'src={`/images/${imgLink}`}/>
             <p className='name'>{props.data.name}</p>
             <p className='price'>{props.data.price} {props.data.currency}</p>

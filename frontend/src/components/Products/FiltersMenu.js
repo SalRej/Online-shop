@@ -16,7 +16,7 @@ function FiltersMenu(props) {
         </div>
         {
             props.showFilters && 
-            <div className='filters'>
+            <div className='filters animate__animated animate__slideInUp'>
                 <div className='heading'>
                     <h2>Filters</h2>
                     <img onClick = {()=>{props.toogleShowFilters()}}src='/images/close.png' className='close-icon'/>

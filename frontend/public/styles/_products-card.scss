@@ -1,15 +1,6 @@
-@keyframes test {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 100%;
-    }
-}
 .cards-holder{
 
     .card{
-        animation: test 2s;
         width: 100%;
         .main-image{
             width: 100%;

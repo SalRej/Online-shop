@@ -6,8 +6,9 @@ router.get('/',async (req,res)=>{
 
     let price = req.query.price;
     if(price == 0){
-        price = 10000;
+        price = Infinity;
     }
+    console.log(price);
     let colors = req.query.colors;
     const sizes = req.query.sizes;
     const productsType = req.query.productsType;
@@ -30,16 +31,16 @@ router.get('/',async (req,res)=>{
     }
     
     //filters the price and category
-    const result = await Products.find(
-    {   primary_category_id:productsType,price:{$lt:price},
-    });
-
+    const result = await Products.find({primary_category_id:productsType,price:{$lt:price}});
     //the goal is to take the values that the swatches hold
     //and check the variation attributes color values
     //if the color value === to swatch value
     //and the color name includes the words from filterColors array
     //then this products can continue
-    const filteredProducts = [];
+    let filteredProducts = [];
+    if(colorsFilter.length===0){
+        filteredProducts=result;
+    } 
     result.forEach((item)=>{
 
         const swatchValues = []

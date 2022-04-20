@@ -790,46 +790,6 @@
   height: 100%;
 }
 
-.color-filter label .red {
-  background-color: red;
-}
-
-.color-filter label .blue {
-  background-color: blue;
-}
-
-.color-filter label .green {
-  background-color: green;
-}
-
-.color-filter label .yellow {
-  background-color: yellow;
-}
-
-.color-filter label .orange {
-  background-color: orange;
-}
-
-.color-filter label .black {
-  background-color: black;
-}
-
-.color-filter label .white {
-  border: 1px solid;
-}
-
-.color-filter label .pink {
-  background-color: pink;
-}
-
-.color-filter label .violet {
-  background-color: violet;
-}
-
-.color-filter label .grey {
-  background-color: grey;
-}
-
 .color-filter label .all {
   background: #95e091;
   background: -webkit-gradient(linear, left top, right top, from(#95e091), to(#ffa007));

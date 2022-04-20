@@ -14,7 +14,7 @@ function ColorFilter(props) {
               <React.Fragment key={index}>
                 <input onChange={handleChange} id={color} type='checkbox' value={color} name='color'/>
                 <label htmlFor={color}>
-                  <div className={`color-box ${color}`}></div>
+                  <div style={{backgroundColor:color}}className={`color-box ${color}`}></div>
                 </label>
               </React.Fragment>
             )

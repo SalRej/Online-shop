@@ -67,6 +67,7 @@ function Products() {
     }
 
     const filterProducts = () =>{
+        console.log(filterValues.color);
         fetch(`/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{
@@ -108,8 +109,9 @@ function Products() {
                     avaibleSizes={avaibleSizes}
                     filterValues={filterValues}
                     handleSetFilterValues={handleSetFilterValues}
-                />
+                    />
             </div>
+            <h2>Number of results : {isLoaded && products.length}</h2>
             <div className='cards-holder'>
                 {
                     isLoaded && products.map(item=>{

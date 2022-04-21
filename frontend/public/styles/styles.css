@@ -607,6 +607,12 @@
   padding-left: 10%;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .filters .holder:hover {
@@ -614,8 +620,23 @@
   cursor: pointer;
 }
 
+.filters .holder i {
+  -webkit-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  padding-right: 10%;
+}
+
 .highlight {
   background-color: lightgrey;
+}
+
+.highlight i {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
 }
 
 @media all and (max-width: 900px) {

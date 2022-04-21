@@ -26,8 +26,9 @@ function FiltersMenu(props) {
                 <div 
                     onClick={()=>{setShowPriceFilter((prev)=>!prev)}}
                     className={"holder" +" " + (showPriceFilter===true && "highlight")}>
-                    Price
-                </div>
+                    <div>Price</div>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>  
                 {
                     showPriceFilter && <PriceFilter price={props.price}
                         filterValues={props.filterValues}
@@ -37,7 +38,8 @@ function FiltersMenu(props) {
                 <div 
                     onClick={()=>{setShowColorFilter((prev)=>!prev)}} 
                     className={"holder" +" " + (showColorFilter===true && "highlight")}>
-                    Color
+                    <div>Colors</div>
+                    <i class="fa-solid fa-caret-down"></i>
                 </div>
                 {
                     showColorFilter && <ColorFilter
@@ -45,10 +47,11 @@ function FiltersMenu(props) {
                         handleSetFilterValues={props.handleSetFilterValues}
                     />
                 }
-                <div 
+                <div
                     onClick={()=>{setShowSizeFilter((prev)=>!prev)}}
                     className={"holder" +" " + (showSizeFilter===true && "highlight")}>
-                    Size
+                    <div>Size</div>
+                    <i class="fa-solid fa-caret-down"></i>
                 </div>
                 {
                     showSizeFilter && <SizeFilter 

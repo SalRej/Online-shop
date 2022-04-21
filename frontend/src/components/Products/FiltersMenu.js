@@ -23,21 +23,33 @@ function FiltersMenu(props) {
                     <h2>Filters</h2>
                     <img onClick = {()=>{props.toogleShowFilters()}}src='/images/close.png' className='close-icon'/>
                 </div>
-                <div onClick={()=>{setShowPriceFilter((prev)=>!prev)}} className='holder'>Price</div>
+                <div 
+                    onClick={()=>{setShowPriceFilter((prev)=>!prev)}}
+                    className={"holder" +" " + (showPriceFilter===true && "highlight")}>
+                    Price
+                </div>
                 {
                     showPriceFilter && <PriceFilter price={props.price}
                         filterValues={props.filterValues}
                         handleSetFilterValues={props.handleSetFilterValues}
                     />
                 }
-                <div onClick={()=>{setShowColorFilter((prev)=>!prev)}} className='holder'>Color</div>
+                <div 
+                    onClick={()=>{setShowColorFilter((prev)=>!prev)}} 
+                    className={"holder" +" " + (showColorFilter===true && "highlight")}>
+                    Color
+                </div>
                 {
                     showColorFilter && <ColorFilter
                         filterValues={props.filterValues}
                         handleSetFilterValues={props.handleSetFilterValues}
                     />
                 }
-                <div onClick={()=>{setShowSizeFilter((prev)=>!prev)}} className='holder'>Size</div>
+                <div 
+                    onClick={()=>{setShowSizeFilter((prev)=>!prev)}}
+                    className={"holder" +" " + (showSizeFilter===true && "highlight")}>
+                    Size
+                </div>
                 {
                     showSizeFilter && <SizeFilter 
                         avaibleSizes={props.avaibleSizes}

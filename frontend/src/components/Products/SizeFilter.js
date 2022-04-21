@@ -15,7 +15,7 @@ function SizeFilter(props) {
                    type='checkbox'
                     value={size.value} 
                     name='size'
-                    checked={props.filterValues.size.includes(size.name)?true:false}
+                    checked={props.filterValues.size.includes(size.value)?true:false}
                     />
                 <label htmlFor={size.name} className="animate__animated animate__flipInX">
                   <div className={`size-box`}>

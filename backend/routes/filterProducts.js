@@ -32,8 +32,11 @@ const filterColors = (arrToFilter,colorsFilter) =>{
     return filteredProducts;
 }
 const filterSizes = (arrToFilter,sizesFilter) =>{
+    //cheks the size variation attributes to be in the sizeFilter array
+    //if they are then add the product 
+    //using set becouse 1 products can include 1 or more sizes that are in sizesFilter array
+    //so set prevents from pushing duplicates , at the end just converts it to an array
     const filteredProducts = new Set();
-    console.log("vleze")
     arrToFilter.forEach(item=>{
         item.variation_attributes.forEach(variation_attribute =>{
             if(variation_attribute.name == "size" || variation_attribute.name =="Size"){

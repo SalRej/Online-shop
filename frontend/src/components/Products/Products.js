@@ -16,7 +16,7 @@ function Products() {
     //takes the params from query string
     const [searchParams] = useSearchParams();
     const name = searchParams.get('name');
-
+    
     const toogleShowFilters = () =>{
         setShowFilters((prev)=>!prev);
     }

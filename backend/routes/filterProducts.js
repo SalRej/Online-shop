@@ -2,6 +2,31 @@ const express = require('express');
 const router = express.Router();
 const Products = require('../models/Product');
 
+const filterColors = (arrToFilter,colorsFilter) =>{
+    const filteredProducts = [];
+    arrToFilter.forEach((item)=>{
+        const swatchValues = []
+        item.image_groups.forEach(item=>{
+            if(item.view_type=='swatch' && typeof(variation_value)!=undefined){
+                swatchValues.push(item.variation_value);
+            }
+        })
+
+        item.variation_attributes.forEach(variation_attribute =>{
+            if(variation_attribute.name == "color" || variation_attribute.name =="Color"){
+                variation_attribute.values.forEach(value =>{
+                    colorsFilter.forEach(color =>{
+                        if(value.name.includes(color) && swatchValues.includes(value.value)){
+                            filteredProducts.push(item);
+                        }
+                    })
+                })
+            }
+        })
+    })
+    console.log(filteredProducts);
+    return filteredProducts;
+}
 router.get('/',async (req,res)=>{
 
     let price = req.query.price;
@@ -40,28 +65,10 @@ router.get('/',async (req,res)=>{
     let filteredProducts = [];
     if(colorsFilter.length===0){
         filteredProducts=result;
-    } 
-    result.forEach((item)=>{
-
-        const swatchValues = []
-        item.image_groups.forEach(item=>{
-            if(item.view_type=='swatch' && typeof(variation_value)!=undefined){
-                swatchValues.push(item.variation_value);
-            }
-        })
-
-        item.variation_attributes.forEach(variation_attribute =>{
-            if(variation_attribute.name == "color" || variation_attribute.name =="Color"){
-                variation_attribute.values.forEach(value =>{
-                    colorsFilter.forEach(color =>{
-                        if(value.name.includes(color) && swatchValues.includes(value.value)){
-                            filteredProducts.push(item);
-                        }
-                    })
-                })
-            }
-        })
-    })
+    }else{
+        filteredProducts = filterColors(result,colorsFilter);
+    }
+    
     
     res.send(JSON.stringify(filteredProducts));
 });

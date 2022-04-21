@@ -13,7 +13,7 @@ function ColorFilter(props) {
             return(
               <React.Fragment key={index}>
                 <input onChange={handleChange} id={color} type='checkbox' value={color} name='color'/>
-                <label htmlFor={color} class='animate__animated animate__flipInX'>
+                <label htmlFor={color} className='animate__animated animate__flipInX'>
                   <div style={{backgroundColor:color}}className={`color-box ${color}`}></div>
                 </label>
               </React.Fragment>

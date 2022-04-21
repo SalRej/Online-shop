@@ -3,6 +3,11 @@ const router = express.Router();
 const Products = require('../models/Product');
 
 const filterColors = (arrToFilter,colorsFilter) =>{
+    //the goal is to take the values that the swatches hold
+    //and check the variation attributes color values
+    //if the color value === to swatch value
+    //and the color name includes the words from filterColors array
+    //then this products can continue
     const filteredProducts = [];
     arrToFilter.forEach((item)=>{
         const swatchValues = []
@@ -24,8 +29,26 @@ const filterColors = (arrToFilter,colorsFilter) =>{
             }
         })
     })
-    console.log(filteredProducts);
     return filteredProducts;
+}
+const filterSizes = (arrToFilter,sizesFilter) =>{
+    const filteredProducts = new Set();
+    console.log("vleze")
+    arrToFilter.forEach(item=>{
+        item.variation_attributes.forEach(variation_attribute =>{
+            if(variation_attribute.name == "size" || variation_attribute.name =="Size"){
+                variation_attribute.values.forEach(value =>{
+                    console.log(value.value);
+                    if(sizesFilter.includes(value.value)){
+                        filteredProducts.add(item);
+                    }
+                })
+            }
+        })
+
+    })
+
+    return Array.from(filteredProducts);
 }
 router.get('/',async (req,res)=>{
 
@@ -33,9 +56,8 @@ router.get('/',async (req,res)=>{
     if(price == 0){
         price = Infinity;
     }
-    console.log(price);
     let colors = req.query.colors;
-    const sizes = req.query.sizes;
+    const sizes = req.query.sizes.split(',');
     const productsType = req.query.productsType;
     
     //takes the color string , converts it to an array
@@ -57,19 +79,18 @@ router.get('/',async (req,res)=>{
     
     //filters the price and category
     const result = await Products.find({primary_category_id:productsType,price:{$lt:price}});
-    //the goal is to take the values that the swatches hold
-    //and check the variation attributes color values
-    //if the color value === to swatch value
-    //and the color name includes the words from filterColors array
-    //then this products can continue
+    
     let filteredProducts = [];
     if(colorsFilter.length===0){
         filteredProducts=result;
     }else{
         filteredProducts = filterColors(result,colorsFilter);
     }
-    
-    
+    if(sizes[0]!=''){
+        filteredProducts=filterSizes(filteredProducts,sizes);
+    }
+    console.log(sizes);
+
     res.send(JSON.stringify(filteredProducts));
 });
 

@@ -8,7 +8,7 @@ const filterColors = (arrToFilter,colorsFilter) =>{
     //if the color value === to swatch value
     //and the color name includes the words from filterColors array
     //then this products can continue
-    const filteredProducts = [];
+    const filteredProducts = new Set();
     arrToFilter.forEach((item)=>{
         const swatchValues = []
         item.image_groups.forEach(item=>{
@@ -22,14 +22,14 @@ const filterColors = (arrToFilter,colorsFilter) =>{
                 variation_attribute.values.forEach(value =>{
                     colorsFilter.forEach(color =>{
                         if(value.name.includes(color) && swatchValues.includes(value.value)){
-                            filteredProducts.push(item);
+                            filteredProducts.add(item);
                         }
                     })
                 })
             }
         })
     })
-    return filteredProducts;
+    return Array.from(filteredProducts);
 }
 const filterSizes = (arrToFilter,sizesFilter) =>{
     //cheks the size variation attributes to be in the sizeFilter array

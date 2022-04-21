@@ -12,7 +12,11 @@ function ColorFilter(props) {
           colors.map((color,index)=>{
             return(
               <React.Fragment key={index}>
-                <input onChange={handleChange} id={color} type='checkbox' value={color} name='color'/>
+                <input onChange={handleChange}
+                  id={color} type='checkbox' 
+                  value={color} name='color'
+                  checked={props.filterValues.color.includes(color)?true:false}
+                  />
                 <label htmlFor={color} className='animate__animated animate__flipInX'>
                   <div style={{backgroundColor:color}}className={`color-box ${color}`}></div>
                 </label>

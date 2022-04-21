@@ -45,7 +45,6 @@ function FiltersMenu(props) {
                         handleSetFilterValues={props.handleSetFilterValues}
                     />
                 }
-                <button>Submit</button>
             </div>
         }
     </div>

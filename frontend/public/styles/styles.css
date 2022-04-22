@@ -404,7 +404,9 @@
 
 .categorie-heading img {
   display: block;
-  width: 100%;
+  margin: auto;
+  margin-top: 1em;
+  width: 90%;
 }
 
 .categorie-heading .description {
@@ -467,6 +469,8 @@
 
 .categorie-card-container img {
   width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .categorie-card-container:last-child {

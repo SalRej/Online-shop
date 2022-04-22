@@ -5,7 +5,7 @@ function CategorieCard(props) {
   return (
     <div className='categorie-card-container'>
         <Link to={`${props.categorie.id}?name=${props.categorie.name}`}>
-            <h3>{props.categorie.name}</h3>
+            <h2>{props.categorie.name}</h2>
             <h4>{props.categorie.page_title}</h4>
             <img src={`/images/${props.categorie.image}`}/>
         </Link>

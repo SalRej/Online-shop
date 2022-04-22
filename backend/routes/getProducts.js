@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Products = require('../models/Product');
-const Categories = require('../models/Categories');
 
 const arekDuplicates = (arr,values) =>{
 
@@ -22,34 +21,37 @@ router.get('/',async (req,res)=>{
     
     const queryParam = req.query.productsType;
     const result = await Products.find({primary_category_id:queryParam});
-
-    let min = result[0].price;
-    let max = result[0].price;
-    const avaibleSizes = [];
-    //find min and max price 
-    result.forEach(item=>{
-        item.variation_attributes.forEach(variation => {
-            if(variation.name=='Size' || variation.name == 'size'){
-                variation.values.forEach(value => {
-
-                    if(!arekDuplicates(avaibleSizes,value)){
-                        avaibleSizes.push({
-                            name:value.name,
-                            value:value.value
-                        })  
-                    }
-                })
+    if(result.length!=0){
+        let min = result[0].price;
+        let max = result[0].price;
+        const avaibleSizes = [];
+        //find min and max price 
+        result.forEach(item=>{
+            item.variation_attributes.forEach(variation => {
+                if(variation.name=='Size' || variation.name == 'size'){
+                    variation.values.forEach(value => {
+    
+                        if(!arekDuplicates(avaibleSizes,value)){
+                            avaibleSizes.push({
+                                name:value.name,
+                                value:value.value
+                            })  
+                        }
+                    })
+                }
+            })
+    
+            if(item.price < min){
+                min = item.price;
+            }
+            if(item.price > max){
+                max = item.price;
             }
         })
-
-        if(item.price < min){
-            min = item.price;
-        }
-        if(item.price > max){
-            max = item.price;
-        }
-    })
-    res.send(JSON.stringify({data:result,minPrice:min,maxPrice:max,avaibleSizes:avaibleSizes}));
+        res.send(JSON.stringify({data:result,minPrice:min,maxPrice:max,avaibleSizes:avaibleSizes}));
+    }else{
+        res.send(JSON.stringify({data:[]}));
+    }
 })
 
 module.exports =router;

@@ -121,7 +121,7 @@ function Products() {
                     handleSetFilterValues={handleSetFilterValues}
                     />
             </div>
-            <h2>Number of results : {isLoaded && products.length}</h2>
+            {/* <h2>Number of results : {isLoaded && products.length}</h2> */}
             <div className='cards-holder'>
                 {
                     isLoaded &&

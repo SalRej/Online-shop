@@ -15,7 +15,7 @@ function Home() {
     },[])
 
     return (
-        <div class='home-page'>
+        <div className='home-page'>
             <div className='main-screen'>
                 <h2>MID SESSSION SALE</h2>
                 <h1>NOW UP TO 40% OFF</h1>
@@ -38,7 +38,7 @@ function Home() {
                 <button>VIEW ALL</button>
     
             </div>
-            <img class='big-image' src='/images/home/man-fashion-1.jpg'/>
+            <img className='big-image' src='/images/home/man-fashion-1.jpg'/>
             <div className='smaller-img-holder'>
                 <img src='/images/home/man-fashion-2.jpg'/>
                 <img src='/images/home/man-fashion-3.jpg'/>

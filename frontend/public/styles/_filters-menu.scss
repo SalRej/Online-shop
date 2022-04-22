@@ -78,7 +78,7 @@
         i{
             transition-duration: 0.8s;
             transition-property: transform;
-            padding-right:10%;
+            margin-right:10%;
         }
     }
 }
@@ -86,7 +86,8 @@
 .highlight{
     background-color:lightgrey;
     i{
-        transform: rotateX(180deg);
+        transform-origin:center;
+        transform:rotate(180deg);
     }
 }
 @media all and (max-width:900px){

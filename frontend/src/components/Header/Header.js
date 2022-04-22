@@ -19,10 +19,10 @@ const Header = () =>{
     
     return(
         <div className='header'>
-            {(screenWidth <= 1000) && <img onClick={toogleToShowMobileMenu} className='menu' src='/images/menu.png'/>}
+            {(screenWidth <= 1000) &&  <i onClick={toogleToShowMobileMenu} className="menu fa-solid fa-bars"></i>}
             {toShowMobileMenu===true && <MobileMenu toogleShow={toogleToShowMobileMenu}/>}
             <Link to='/'>
-                <img className='logo' src='/images/logo.jpg'/>
+                <img className='logo' src='/images/images.png'/>
             </Link>
             <Link to='/mens'>
                 <div className='categorie'>
@@ -38,12 +38,12 @@ const Header = () =>{
             </Link>
             <div className='search-bar-holder'>
                 <input className='search-bar' placeholder='Search for items and brands'/>
-                <img src='/images/search.png' className='search-icon'/>
+                <i className="search-icon fa-solid fa-magnifying-glass"></i>
             </div>
-            {(window.innerWidth <= 700) && <img className='search-icon' src='/images/search-mobile.png' />}
-            <img src='/images/user.png'/>
-            <img src='/images/love.png'/>
-            <img src='/images/shopping-bag.png'/>
+            {(window.innerWidth <= 700) &&  <i className="fa-solid fa-magnifying-glass"></i>}
+            <i className="fa-solid fa-user"></i>
+            <i className="fa-solid fa-heart"></i>
+            <i className="fa-solid fa-bag-shopping"></i>
         </div>
     )
 }

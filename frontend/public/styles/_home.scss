@@ -34,7 +34,6 @@
         column-gap: 2em;
         
         .sales-card{
-            transition: all 1s;
             background-color:white;
             width: 12vw;
             height: 20vw;
@@ -61,6 +60,7 @@
                 padding-top:5%;
             }
             &:hover{
+                transition: all 1s;
                 transform: scale(1.1);
              
             }

@@ -19,5 +19,12 @@
         .name{
             color:rgb(132, 132, 132);
         }
+        .name,.price,.swatch{
+            padding-left: 5%;
+        }
+        &:hover{
+            transition:all 0.6s;
+            transform: translateY(-5%);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;        }
     }
 }

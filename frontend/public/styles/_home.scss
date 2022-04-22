@@ -1,75 +1,113 @@
 .home-page{
-    width: 100%;
-    max-width: 100%;
-    background: rgb(255,198,248);
-    background: linear-gradient(90deg, rgba(255,198,248,1) 0%, rgba(116,10,166,1) 100%);
-    text-align: center;
-    h2{
-        padding-top:2em;
-        font-weight: bold;
-    }
-    h1{
-        font-weight:900;
-        margin-bottom: 2em;
-    }
-    button{
-        transition: 1s;
-        margin-top:2em;
-        padding:0.3em 0.8em 0.3em 0.8em;
-        font-weight: 500;
-        font-size: 1.4em;
-        background-color: white;
-        border:none;
-        margin-bottom: 3em;
-        &:hover{
-            background-color: black;
-            color:white;
-            cursor: pointer;
-            transition: 1s;
+
+    .main-screen{
+        width: 100%;
+        max-width: 100%;
+        background: rgb(255,198,248);
+        background: linear-gradient(90deg, rgba(255,198,248,1) 0%, rgba(116,10,166,1) 100%);
+        text-align: center;
+        h2{
+            padding-top:2em;
+            font-weight: bold;
         }
-    }
-    .sales-card-holder{
-        display: flex;
-        justify-content: center; 
-        column-gap: 2em;
-        
-        .sales-card{
-            background-color:white;
-            width: 12vw;
-            height: 20vw;
-            border-radius: 5px;
-            .image-container{
-                width: 100%;
-                height: 85%;
-                border-radius: 15px;
-                img{
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
+        h1{
+            font-weight:900;
+            margin-bottom: 2em;
+        }
+        button{
+            transition: 1s;
+            margin-top:2em;
+            padding:0.5em 2em 0.5em 2em;
+            font-weight: 600;
+            font-size: 1.2em;
+            background-color: white;
+            border:none;
+            margin-bottom: 3em;
+            &:hover{
+                background-color: black;
+                color:white;
+                cursor: pointer;
+                transition: 1s;
+            }
+        }
+        .sales-card-holder{
+            display: flex;
+            justify-content: center; 
+            column-gap: 2em;
+            
+            .sales-card{
+                background-color:white;
+                width: 12vw;
+                height: 20vw;
+                border-radius: 5px;
+                .image-container{
                     width: 100%;
-                    height: 100%;
-                    object-fit:cover;
+                    height: 85%;
+                    border-radius: 15px;
+                    img{
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
+                        width: 100%;
+                        height: 100%;
+                        object-fit:cover;
+                    }
+                }
+                p{
+                    border-radius: 15px;
+                    color:black;
+                    font-weight: 600;
+                    font-size:1vw;
+                    text-align: center;
+                    height: 15%;
+                    padding-top:5%;
+                }
+                &:hover{
+                    transition: all 1s;
+                    transform: scale(1.1);
+                 
                 }
             }
-            p{
-                border-radius: 15px;
-                color:black;
-                font-weight: 600;
-                font-size:1vw;
-                text-align: center;
-                height: 15%;
-                padding-top:5%;
-            }
-            &:hover{
-                transition: all 1s;
-                transform: scale(1.1);
-             
-            }
         }
+    }
+    .big-image{
+        width: 70vw;
+        display: block;
+        margin:auto;
+        margin-top:5em;
+        margin-bottom:5em;
+    }
+
+    .smaller-img-holder{
+        display: flex;
+        justify-content: center;
+        
+        img{
+            height: 600px;
+            width: 30vw;
+            object-fit: cover;
+            margin-left:2em;
+            margin-right:2em;
+            margin-bottom: 5em;
+        }
+    }
+    .bottom{
+        border-top:1px solid rgba(0, 0, 0, 0.144);
+        padding-top:1em;
+        margin:auto;
+        width: 20vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2em;
+        img{
+            height: 2em;
+        }
+        
     }
 }
 
 @media all and (max-width:900px){
-    .home-page{
+    .main-screen{
         margin:0;
         padding:0;
         .sales-card-holder{
@@ -89,7 +127,7 @@
 }
 
 @media all and (max-width:500px){
-    .home-page{
+    .main-screen{
         .sales-card-holder{
             grid-column-gap: 3em;
             .sales-card{

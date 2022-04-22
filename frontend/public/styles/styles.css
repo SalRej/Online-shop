@@ -111,7 +111,7 @@
 @media all and (max-width: 700px) {
   .header {
     margin: 0;
-    padding: 0;
+    padding-right: 5%;
   }
   .header .search-bar-holder {
     display: none;
@@ -168,7 +168,7 @@
   }
 }
 
-.home-page {
+.home-page .main-screen {
   width: 100%;
   max-width: 100%;
   background: #ffc6f8;
@@ -177,29 +177,29 @@
   text-align: center;
 }
 
-.home-page h2 {
+.home-page .main-screen h2 {
   padding-top: 2em;
   font-weight: bold;
 }
 
-.home-page h1 {
+.home-page .main-screen h1 {
   font-weight: 900;
   margin-bottom: 2em;
 }
 
-.home-page button {
+.home-page .main-screen button {
   -webkit-transition: 1s;
   transition: 1s;
   margin-top: 2em;
-  padding: 0.3em 0.8em 0.3em 0.8em;
-  font-weight: 500;
-  font-size: 1.4em;
+  padding: 0.5em 2em 0.5em 2em;
+  font-weight: 600;
+  font-size: 1.2em;
   background-color: white;
   border: none;
   margin-bottom: 3em;
 }
 
-.home-page button:hover {
+.home-page .main-screen button:hover {
   background-color: black;
   color: white;
   cursor: pointer;
@@ -207,7 +207,7 @@
   transition: 1s;
 }
 
-.home-page .sales-card-holder {
+.home-page .main-screen .sales-card-holder {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,20 +218,20 @@
           column-gap: 2em;
 }
 
-.home-page .sales-card-holder .sales-card {
+.home-page .main-screen .sales-card-holder .sales-card {
   background-color: white;
   width: 12vw;
   height: 20vw;
   border-radius: 5px;
 }
 
-.home-page .sales-card-holder .sales-card .image-container {
+.home-page .main-screen .sales-card-holder .sales-card .image-container {
   width: 100%;
   height: 85%;
   border-radius: 15px;
 }
 
-.home-page .sales-card-holder .sales-card .image-container img {
+.home-page .main-screen .sales-card-holder .sales-card .image-container img {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 100%;
@@ -240,7 +240,7 @@
      object-fit: cover;
 }
 
-.home-page .sales-card-holder .sales-card p {
+.home-page .main-screen .sales-card-holder .sales-card p {
   border-radius: 15px;
   color: black;
   font-weight: 600;
@@ -250,19 +250,67 @@
   padding-top: 5%;
 }
 
-.home-page .sales-card-holder .sales-card:hover {
+.home-page .main-screen .sales-card-holder .sales-card:hover {
   -webkit-transition: all 1s;
   transition: all 1s;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
+.home-page .big-image {
+  width: 70vw;
+  display: block;
+  margin: auto;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.home-page .smaller-img-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home-page .smaller-img-holder img {
+  height: 600px;
+  width: 30vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 5em;
+}
+
+.home-page .bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.144);
+  padding-top: 1em;
+  margin: auto;
+  width: 20vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2em;
+}
+
+.home-page .bottom img {
+  height: 2em;
+}
+
 @media all and (max-width: 900px) {
-  .home-page {
+  .main-screen {
     margin: 0;
     padding: 0;
   }
-  .home-page .sales-card-holder {
+  .main-screen .sales-card-holder {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 35vw 35vw;
@@ -270,20 +318,20 @@
     grid-row-gap: 4em;
     grid-column-gap: 5em;
   }
-  .home-page .sales-card-holder .sales-card {
+  .main-screen .sales-card-holder .sales-card {
     width: 100%;
     height: 100%;
   }
-  .home-page .sales-card-holder .sales-card p {
+  .main-screen .sales-card-holder .sales-card p {
     font-size: 100%;
   }
 }
 
 @media all and (max-width: 500px) {
-  .home-page .sales-card-holder {
+  .main-screen .sales-card-holder {
     grid-column-gap: 3em;
   }
-  .home-page .sales-card-holder .sales-card p {
+  .main-screen .sales-card-holder .sales-card p {
     font-size: 60%;
   }
 }

@@ -8,7 +8,7 @@ function Products() {
     const [showFilters,setShowFilters] = useState(false);//show filters menu or not
     const [products,setProducts] = useState();//data of the products fetcher from backend
     const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});//values to send to the server to filter
-
+    const [noPorducts,setNoProducts] = useState(false);
     const [price,setPrice] = useState({minPrice:0,maxPrice:0});//min and max price
     const [avaibleSizes,setAvaibleSizes] = useState();//stores the avaible size for the current type of products
     const {productsType} = useParams();
@@ -71,6 +71,11 @@ function Products() {
         fetch(`/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{
+            if(data.length===0){
+                setNoProducts(true);
+            }else{
+                setNoProducts(false);
+            }
             setProducts(data);
             setIsLoaded(true);
         })
@@ -85,6 +90,11 @@ function Products() {
         fetch(`/getProducts?productsType=${productsType}`)
         .then(res=>res.json())
         .then((data)=>{
+            if(data.data.length===0){
+                setNoProducts(true);
+            }else{
+                setNoProducts(false);
+            }
             setPrice((prev)=>{
                 return {
                     ...prev,
@@ -114,9 +124,14 @@ function Products() {
             <h2>Number of results : {isLoaded && products.length}</h2>
             <div className='cards-holder'>
                 {
-                    isLoaded && products.map(item=>{
+                    isLoaded &&
+                    products.map(item=>{
                         return <ProductsCard key={item.id} data={item}/>;
                     })
+                }
+                {
+                    noPorducts &&
+                    <h1 className='no-products'>No products were found</h1>
                 }
             </div>
         </div>

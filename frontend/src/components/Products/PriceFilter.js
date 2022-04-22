@@ -15,8 +15,8 @@ function PriceFilter(props) {
       <div className='slider-holder'>
         <p>{props.price.minPrice}</p>
         <input onChange={andjustPrice} onMouseUp={handleChange} value={currcentPrice}
-          type="range" min={props.price.minPrice} max={props.price.maxPrice} name='price' />
-        <p>{props.price.maxPrice}</p>
+          type="range" min={props.price.minPrice} max={props.price.maxPrice + 1} name='price' />
+        <p>{props.price.maxPrice + 1}</p>
       </div>
     </div>
   )

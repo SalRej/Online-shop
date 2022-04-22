@@ -589,6 +589,16 @@
   grid-row-gap: 1em;
 }
 
+.no-products {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+  margin: auto;
+}
+
 @media all and (max-width: 850px) {
   .cards-holder {
     -ms-grid-columns: (1fr)[3];

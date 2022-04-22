@@ -6,7 +6,7 @@ function SizeFilter(props) {
   }
   return (
     <div className='size-filter my-checkbox'>
-      {
+      {   props.avaibleSizes.length>0?
           props.avaibleSizes.map((size,index)=>{
             return(
               <React.Fragment key={index}>
@@ -24,7 +24,7 @@ function SizeFilter(props) {
                 </label>
               </React.Fragment>
             )
-          })
+          }):<p className="animate__animated animate__flipInX">No avaible sizes</p>
         }
     </div>
   )

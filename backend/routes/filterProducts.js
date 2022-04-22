@@ -81,7 +81,7 @@ router.get('/',async (req,res)=>{
     }
     
     //filters the price and category
-    const result = await Products.find({primary_category_id:productsType,price:{$lt:price}});
+    const result = await Products.find({primary_category_id:productsType,price:{$lte:price}});
     
     let filteredProducts = [];
     if(colorsFilter.length===0){

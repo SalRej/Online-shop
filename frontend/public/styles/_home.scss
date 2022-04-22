@@ -96,44 +96,74 @@
         margin:auto;
         width: 20vw;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         margin-bottom: 2em;
         img{
             height: 2em;
+            margin-left:5%;
+            margin-right:5%;
         }
         
     }
 }
 
 @media all and (max-width:900px){
-    .main-screen{
-        margin:0;
-        padding:0;
-        .sales-card-holder{
-            display: grid;
-            grid-template-columns: 35vw 35vw;
-            grid-row-gap: 4em;
-            grid-column-gap: 5em;
-            .sales-card{
-                width: 100%;
-                height: 100%;
-                p{
-                    font-size: 100%;
+    .home-page{
+
+        .main-screen{
+            margin:0;
+            padding:0;
+            .sales-card-holder{
+                display: grid;
+                grid-template-columns: 35vw 35vw;
+                grid-row-gap: 4em;
+                grid-column-gap: 5em;
+                .sales-card{
+                    width: 100%;
+                    height: 100%;
+                    p{
+                        font-size: 100%;
+                    }
                 }
+            }
+        }
+    }
+}
+@media all and (max-width:750px){
+    .home-page{
+        .big-image{
+            width: 100vw;
+        }
+        .smaller-img-holder{
+            img{
+                width: 40vw;
+
             }
         }
     }
 }
 
 @media all and (max-width:500px){
-    .main-screen{
-        .sales-card-holder{
-            grid-column-gap: 3em;
-            .sales-card{
-                p{
-                    font-size: 60%;
+    .home-page{
+
+        .main-screen{
+            .sales-card-holder{
+                grid-column-gap: 3em;
+                .sales-card{
+                    p{
+                        font-size: 60%;
+                    }
                 }
+            }
+        }
+        .smaller-img-holder{
+            display: block;
+            img{
+                display: block;
+                margin:auto;
+                width: 80vw;
+                margin-bottom: 2em;
             }
         }
     }

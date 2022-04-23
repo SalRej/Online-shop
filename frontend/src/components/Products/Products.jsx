@@ -67,7 +67,6 @@ function Products() {
     }
 
     const filterProducts = () =>{
-        console.log(filterValues.color);
         fetch(`/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{

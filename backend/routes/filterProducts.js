@@ -92,7 +92,6 @@ router.get('/',async (req,res)=>{
     if(sizes[0]!=''){
         filteredProducts=filterSizes(filteredProducts,sizes);
     }
-    console.log(sizes);
 
     res.send(JSON.stringify(filteredProducts));
 });

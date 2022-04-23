@@ -6,7 +6,6 @@ router.get('/',async (req,res)=>{
     const productId = req.query.productId;
     
     const result = await Products.find({id:productId});
-    console.log(productId);
     res.send(JSON.stringify(result));
 });
 

@@ -3,12 +3,13 @@
     .main-screen{
         width: 100%;
         max-width: 100%;
-        background: rgb(255,198,248);
-        background: linear-gradient(90deg, rgba(255,198,248,1) 0%, rgba(116,10,166,1) 100%);
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(156,156,156,1) 50%, rgba(107,107,107,1) 100%);
         text-align: center;
         h2{
             padding-top:2em;
             font-weight: bold;
+            
         }
         h1{
             font-weight:900;

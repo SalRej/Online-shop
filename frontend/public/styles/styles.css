@@ -210,9 +210,9 @@
 .home-page .main-screen {
   width: 100%;
   max-width: 100%;
-  background: #ffc6f8;
-  background: -webkit-gradient(linear, left top, right top, from(#ffc6f8), to(#740aa6));
-  background: linear-gradient(90deg, #ffc6f8 0%, #740aa6 100%);
+  background: white;
+  background: -webkit-gradient(linear, left bottom, left top, from(white), color-stop(50%, #9c9c9c), to(#6b6b6b));
+  background: linear-gradient(0deg, white 0%, #9c9c9c 50%, #6b6b6b 100%);
   text-align: center;
 }
 

@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Categorie from "./components/Categorie/Categorie";
 import SubCategorie from "./components/SubCategorie/SubCategorie";
 import Products from "./components/Products/Products";
+import ProductDescription from "./components/ProductsDescription/ProductDescription";
 import {
   BrowserRouter as Router , Routes , Route
 } from "react-router-dom";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/:categorie" element={<Categorie />}></Route>
           <Route path="/:categorie/:subCategorie" element={<SubCategorie />}></Route>
           <Route path="/:categorie/:subCategorie/:productsType" element={<Products />}></Route>
+          <Route path="/:categorie/:subCategorie/:productsType/:productId" element={<ProductDescription />}></Route>
         </Routes>
         <Footer/>
     </Router>

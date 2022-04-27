@@ -982,14 +982,14 @@
   cursor: pointer;
 }
 
-.my-checkbox label div {
+.my-checkbox label div, .my-checkbox label img {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
 }
 
-.my-checkbox input[type="checkbox"] {
+.my-checkbox input[type="checkbox"], .my-checkbox input[type="radio"] {
   display: none;
 }
 
@@ -1014,7 +1014,7 @@
   z-index: 2;
 }
 
-.my-checkbox :checked + label div {
+.my-checkbox :checked + label div, .my-checkbox img {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
   z-index: -1;
@@ -1030,5 +1030,168 @@
   background-color: grey;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
+}
+
+.product-description {
+  width: 80vw;
+  margin: auto;
+  margin-top: 5em;
+}
+
+.product-description .info-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@-webkit-keyframes test {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes test {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.ttest {
+  -webkit-animation: test 1s;
+          animation: test 1s;
+}
+
+.image-section {
+  width: 50%;
+}
+
+.image-section .main-image {
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.073);
+}
+
+.image-section .main-image img {
+  width: 100%;
+  height: 70vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.image-section .carusel {
+  margin-top: 1em;
+  margin-bottom: 3em;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.image-section .carusel img:first-child {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 5em;
+}
+
+.image-section .carusel img:last-child {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 5em;
+}
+
+.image-section .carusel .variant {
+  opacity: 0.4;
+}
+
+.image-section .carusel .chosen {
+  opacity: 1;
+  border: 1px solid rgba(211, 211, 211, 0.486);
+}
+
+.data-section {
+  padding-left: 5%;
+  width: 50%;
+  position: relative;
+}
+
+.data-section .item-number {
+  color: #b1b1b1;
+}
+
+.data-section .title {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.data-section .price {
+  margin-top: 5%;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.data-section h3 {
+  margin-top: 3em;
+}
+
+.data-section .holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0.5em;
+}
+
+.data-section .holder label {
+  margin-right: 0.5em;
+  display: block;
+  width: 2em;
+  height: 2em;
+  border: none;
+}
+
+.data-section .holder label img, .data-section .holder label div {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.data-section .holder label div {
+  border: 1px solid rgba(211, 211, 211, 0.47);
+  line-height: 2em;
+  text-align: center;
+}
+
+.data-section button {
+  position: absolute;
+  width: 70%;
+  margin: auto;
+  margin-top: 25%;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 1em 2em 1em 2em;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.data-section button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid rgba(211, 211, 211, 0.492);
+  cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */

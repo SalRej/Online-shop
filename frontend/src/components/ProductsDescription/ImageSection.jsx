@@ -1,12 +1,14 @@
-import React , {useEffect, useState} from 'react'
+import React , {useEffect, useState ,useRef} from 'react'
 
 function ImageSection(props) {
     //changing the index will change will image in large images array to show
     const [currentImageIndex,setCurrentImageIndex]= useState(0);//index to change images
-
+    const test = useRef();
     //increment and decrement the index , check if index is out of bounds 
     //if small images array then retun i to 0 or length of small images array -  1
     const incrementIndex = () =>{
+        console.log(test.current);
+        test.current.className="animate__animated animate__flipInX";
         if(currentImageIndex < props.smallImages[0].images.length - 1){
             setCurrentImageIndex((prev)=>{
                 return prev + 1;
@@ -37,24 +39,28 @@ function ImageSection(props) {
 
     return (
         <div className='image-section'>
-            {
-                props.largeImages.map(item=>{ 
-                    return item.images.map((image,index)=>{
-                        //display only the image at the current index
-                        if(currentImageIndex == index)
-                            return(<img key={index} src={`/images/${image.link}`}/>)
-                    })  
-                })
-            }
-            <img onClick = {decrementIndex} src='/images/arrow-left.png'/>
-            {
-                props.smallImages.map(item=>{
-                    return item.images.map((image,index)=>{
-                        return(<img key={index} src={`/images/${image.link}`}/>)
+            <div className='main-image'>
+                {
+                    props.largeImages.map(item=>{ 
+                        return item.images.map((image,index)=>{
+                            //display only the image at the current index
+                            if(currentImageIndex == index)
+                                return(<img ref={test} key={index} src={`/images/${image.link}`}/>)
+                        })  
                     })
-                })
-            }
-            <img onClick = {incrementIndex} src='/images/arrow-right.png'/>
+                }
+            </div>
+            <div className='carusel'>
+                <img onClick = {decrementIndex} src='/images/arrow-left.png'/>
+                {
+                    props.smallImages.map(item=>{
+                        return item.images.map((image,index)=>{
+                            return(<img className={currentImageIndex==index?'chosen':'variant'} key={index} src={`/images/${image.link}`}/>)
+                        })
+                    })
+                }
+                <img onClick = {incrementIndex} src='/images/arrow-right.png'/>
+            </div>
         </div>
     )
 }

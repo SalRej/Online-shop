@@ -1143,6 +1143,11 @@
   font-size: 1.8em;
 }
 
+.data-section .price span {
+  font-size: 0.5em;
+  margin-left: 0.3em;
+}
+
 .data-section h3 {
   margin-top: 3em;
 }

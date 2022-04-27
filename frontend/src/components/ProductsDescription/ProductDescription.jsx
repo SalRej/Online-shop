@@ -7,6 +7,7 @@ function ProductDescription() {
     const [product,setProduct] = useState();
     const [iseLoaded,setIsLoaded] = useState(false);
     const [currentVariation,setCurrentVariation] = useState("");
+    const [currentSizeVariation,setCurrentSizeVariation] = useState("");
     const [largeImages,setLargeImages] = useState([]);
     const [smallImages,setSmallImages] = useState([]);
     const [swatchImages,setSwatchImages] = useState([]);
@@ -44,6 +45,7 @@ function ProductDescription() {
         setLargeImages([]);
         setSmallImages([]);
         //picks all small and large images where the variation == current variation
+        //if there is no variation then pick all
         if(currentVariation!='none'){
             product.image_groups.forEach(item=>{
                 if(item.view_type=="large" && item.variation_value==currentVariation){
@@ -78,9 +80,14 @@ function ProductDescription() {
             setIsLoaded(true);
             setProduct(data[0]);
             getSwatches(data[0]);
+            if(typeof(data[0].variation_attributes[1].values)){
+                setCurrentSizeVariation(data[0].variation_attributes[1].values[0].value);
+            }
         })
     },[])
-
+    const changeSizeVariation = (value) =>{
+        setCurrentSizeVariation(value)
+    }
     const changeVariation = (variation) =>{
         setCurrentVariation(variation);
     }
@@ -89,7 +96,7 @@ function ProductDescription() {
             {
                 iseLoaded &&
                 <div className='info-holder'>
-                    {console.log(largeImages)}
+                    {console.log(currentSizeVariation)}
                     <ImageSection 
                         largeImages={largeImages}
                         smallImages={smallImages}
@@ -100,6 +107,9 @@ function ProductDescription() {
                         product={product}
                         swatchImages={swatchImages}
                         changeVariation={changeVariation}
+                        currentVariation={currentVariation}
+                        currentSizeVariation={currentSizeVariation}
+                        changeSizeVariation={changeSizeVariation}
                     />
                 </div>
             }

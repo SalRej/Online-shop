@@ -11,14 +11,15 @@ function DataSection(props) {
                 <h3>Color</h3>
                 <div className='holder my-checkbox'>
                     {
-                        props.swatchImages.map(item=>{
+                        props.swatchImages.map((item,index)=>{
                             if(typeof(item.variation_value)!='undefined'){
                                 return item.images.map((image,index)=>{
                                     return(
-                                        <React.Fragment>
+                                        <React.Fragment key={index}>
                                             <input
                                                 id={item.variation_value} type='radio' 
                                                 value={item.variation_value} name='color'
+                                                checked={item.variation_value===props.currentVariation?true:false}
                                             />
                                             <label htmlFor={item.variation_value} className='animate__animated animate__flipInX'>
                                                 <img 
@@ -43,14 +44,19 @@ function DataSection(props) {
                 <div className='holder my-checkbox'>
                     {
                        
-                        props.product.variation_attributes[1].values.map(item=>{
+                        props.product.variation_attributes[1].values.map((item,index)=>{
                             return(
-                                <React.Fragment>
+                                <React.Fragment key={index}>
                                     <input
                                         id={item.name} type='radio' 
                                         value={item.value} name='size'
+                                        checked={item.value === props.currentSizeVariation?true:false}
+                                       
                                     />
-                                    <label htmlFor={item.name} className='animate__animated animate__flipInX'>
+                                    <label htmlFor={item.name}
+                                        className='animate__animated animate__flipInX'
+                                        onClick = {()=>{props.changeSizeVariation(item.value)}}
+                                    >
                                         <div>{item.name}</div>
                                     </label>
                                 </React.Fragment>

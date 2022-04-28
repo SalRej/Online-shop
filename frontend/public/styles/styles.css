@@ -211,8 +211,8 @@
   width: 100%;
   max-width: 100%;
   background: white;
-  background: -webkit-gradient(linear, left bottom, left top, from(white), color-stop(50%, #9c9c9c), to(#6b6b6b));
-  background: linear-gradient(0deg, white 0%, #9c9c9c 50%, #6b6b6b 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(white), color-stop(50%, #cf44d1), to(#bf41b0));
+  background: linear-gradient(0deg, white 0%, #cf44d1 50%, #bf41b0 100%);
   text-align: center;
 }
 

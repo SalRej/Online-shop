@@ -35,7 +35,7 @@ function ImageSection(props) {
         //and change the values of the large and small images with adjuseImages function
         setCurrentImageIndex(0);
         props.adjustImages();
-    },[props.currentVariation])
+    },[props.currentColorVariation])
 
     return (
         <div className='image-section'>
@@ -55,7 +55,9 @@ function ImageSection(props) {
                 {
                     props.smallImages.map(item=>{
                         return item.images.map((image,index)=>{
-                            return(<img className={currentImageIndex==index?'chosen':'variant'} key={index} src={`/images/${image.link}`}/>)
+                            return(<img className={currentImageIndex==index?'chosen':'variant'}
+                                key={index} src={`/images/${image.link}`}/>
+                             )
                         })
                     })
                 }

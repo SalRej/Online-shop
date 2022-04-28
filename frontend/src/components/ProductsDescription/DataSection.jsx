@@ -5,7 +5,7 @@ function DataSection(props) {
     <div className='data-section'>
         <p className='item-number'>Item No.{props.product.id}</p>
         <p className='title'>{props.product.page_title}</p>
-        <p className='price'>{props.product.price}<span>{props.product.currency}</span></p>
+        <p className='price'>{props.currentPrice}<span>{props.product.currency}</span></p>
         {   props.swatchImages.length>0 && 
             <React.Fragment>
                 <h3>Color</h3>
@@ -19,11 +19,11 @@ function DataSection(props) {
                                             <input
                                                 id={item.variation_value} type='radio' 
                                                 value={item.variation_value} name='color'
-                                                checked={item.variation_value===props.currentVariation?true:false}
+                                                checked={item.variation_value===props.currentColorVariation?true:false}
                                             />
                                             <label htmlFor={item.variation_value} className='animate__animated animate__flipInX'>
                                                 <img 
-                                                    onClick={()=>{props.changeVariation(item.variation_value)}}
+                                                    onClick={()=>{props.changeColorVariation(item.variation_value)}}
                                                     key={index}
                                                     src={`/images/${image.link}`}
                                                 />

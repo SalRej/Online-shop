@@ -48,3 +48,23 @@
         }
     }
 }
+
+@media all and (max-width:1000px){
+    .image-section{
+        width: 70%;
+        .carusel{
+            img:first-child{ 
+                width: 3em;
+             }
+             img:last-child{
+                width: 3em;
+             }
+        }
+    }
+}
+
+@media all and (max-width:650px){
+    .image-section{
+        width: 100%;
+    }
+}

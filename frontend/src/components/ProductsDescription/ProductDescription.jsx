@@ -106,7 +106,7 @@ function ProductDescription() {
             }
         }
     },[currentColorVariation,currentSizeVariation])
-    
+
     const changeSizeVariation = (value) =>{
         setCurrentSizeVariation(value)
     }
@@ -134,6 +134,13 @@ function ProductDescription() {
                         changeSizeVariation={changeSizeVariation}
                         currentPrice = {currentPrice}
                     />
+                </div>
+            }
+            {
+                iseLoaded &&
+                <div className='description'>
+                    <h2 className='page-title'>{product.page_title}</h2>
+                    <h4 className='page-description'>{product.page_description}</h4>
                 </div>
             }
         </div>

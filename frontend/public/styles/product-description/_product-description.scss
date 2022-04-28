@@ -5,4 +5,24 @@
     .info-holder{
         display: flex;
     }
+    .description{
+        width: 80vw;
+        h4{
+            margin-top:2em;
+            margin-bottom: 1em;
+        }
+    }
+}
+@media all and (max-width:650px){
+    .product-description{
+        margin-top:0;
+        width: 100%;
+        .info-holder{
+            display:block;
+        }
+        .description{
+            margin:auto;
+            margin-top:3em;
+        }
+    }
 }

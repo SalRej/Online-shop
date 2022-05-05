@@ -1,4 +1,4 @@
-import React,{useState , useRef} from 'react'
+import React,{useState , useRef, useEffect} from 'react'
 import PriceFilter from './PriceFilter';
 import ColorFilter from './ColorFilter';
 import SizeFilter from './SizeFilter';
@@ -10,6 +10,9 @@ function FiltersMenu(props) {
     const [showSizeFilter,setShowSizeFilter] = useState(false);
     const filterForm = useRef();
 
+    useEffect(()=>{
+        console.log("rerender")
+    },[])
     return (
     <div>
         <div onClick = {()=>{props.toogleShowFilters()}} className='filters-button'>

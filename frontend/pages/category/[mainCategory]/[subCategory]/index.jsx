@@ -22,7 +22,7 @@ function SubCategorie() {
         <div>
             {
               isLoaded &&  subCategories.categories.map(item=>{
-                    return <CategorieCard key={item.id} categorie={item} link={`${router.asPath}/${item.id}`}/>
+                    return <CategorieCard key={item.id} categorie={item} link={`${router.asPath}/${item.id}?name=${item.name}`}/>
                 })
             }    
         </div>

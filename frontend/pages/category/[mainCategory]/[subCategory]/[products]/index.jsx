@@ -4,6 +4,7 @@ import ProductsCard from '../../../../../components/ProductCard/ProductsCard';
 import FiltersMenu from '../../../../../components/Filters/FiltersMenu';
 function Products(props) {
 
+    const [noProducts,setNoProducts] = useState(false);
     const [isLoaded,setIsLoaded] = useState(false);
     const [showFilters,setShowFilters] = useState(false);//show filters menu or not
     const [products,setProducts] = useState();//data of the products fetcher from backend
@@ -70,6 +71,11 @@ function Products(props) {
         fetch(process.env.URL + `/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{
+            if(data.length===0){
+                setNoProducts(true);
+            }else{
+                setNoProducts(false);
+            }
             setProducts(data);
             setIsLoaded(true);
         })
@@ -80,14 +86,20 @@ function Products(props) {
     },[filterValues])
 
     useEffect(()=>{
+        if(props.products.length===0){
+            setNoProducts(true);
+        }else{
+            setNoProducts(false);
+        }
+
         setProducts(props.products);
         setIsLoaded(true);
     },[])
-    if(isLoaded === false) return <p>Loading</p>
+
     return (
         <div>
             <div className='products-heading'>
-                {/* <h2>{name}</h2> */}
+                <h2>{props.name}</h2>
                 <FiltersMenu 
                     showFilters={showFilters} 
                     toogleShowFilters={toogleShowFilters}
@@ -99,10 +111,14 @@ function Products(props) {
             </div>
             {/* <h2>Number of results : {isLoaded && products.length}</h2> */}
             <div className='cards-holder'>
-                {
+                {   isLoaded===true && 
                     products.map(item=>{
                         return <ProductsCard key={item.id} data={item}/>;
                     })
+                }
+                 {
+                    noProducts &&
+                    <h1 className='no-products'>No products were found</h1>
                 }
             </div>
         </div>
@@ -113,7 +129,6 @@ export async function getServerSideProps(context) {
     const productsType = context.params.products;
     const res = await fetch(process.env.URL + `/getProducts?productsType=${productsType}`)
     const data = await res.json();
-    console.log("vliza");
     return {
       props: {
           products:data.data,
@@ -121,8 +136,9 @@ export async function getServerSideProps(context) {
               minPrice:data.minPrice,
               maxPrice:data.maxPrice
           },
-          avaibleSizes:data.avaibleSizes
-      }, // will be passed to the page component as props
+          avaibleSizes:data.avaibleSizes,
+          name:context.query.name
+      },
     }
   }
 export default Products

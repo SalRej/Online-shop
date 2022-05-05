@@ -9,22 +9,20 @@ function FiltersMenu(props) {
     const [showColorFilter,setShowColorFilter] = useState(false);
     const [showSizeFilter,setShowSizeFilter] = useState(false);
     const filtersMenu = useRef();
-    console.log(showPriceFilter + " c " + showColorFilter + " s " + showSizeFilter)
+
     const showFiltersMenu = () =>{
         filtersMenu.current.className="filters animate__animated animate__slideInUp";
         props.toogleShowFilters(true);
-        console.log(props.showFilters + " t ");
     }
     const hideFiltersMenu = () =>{
         filtersMenu.current.className="filters animate__animated animate__slideOutDown";
         setTimeout(()=>{filtersMenu.current.className='hidden'},1000);
         props.toogleShowFilters(false);
-        console.log(props.showFilters + " t ");
     }
 
     useEffect(()=>{
         if(props.showFilters===false){
-            hideFiltersMenu();
+            filtersMenu.current.className='hidden';
         }
     },[])
     return (
@@ -41,7 +39,8 @@ function FiltersMenu(props) {
                 </div>
                 <div 
                     onClick={()=>{setShowPriceFilter((prev)=>!prev)}}
-                    className={"holder" +" " + (showPriceFilter===true && "highlight")}>
+                    className={"holder" +" " + (showPriceFilter===true && "highlight")}
+                >
                     <div>Price</div>
                     <i className="fa-solid fa-caret-down"></i>
                 </div>  

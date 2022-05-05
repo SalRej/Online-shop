@@ -9,6 +9,10 @@ function MyApp({ Component, pageProps }) {
     <Fragment>
         <Head>
             <script src="https://kit.fontawesome.com/f62a6be0ed.js" crossorigin="anonymous"></script>
+            <link
+              rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+            />
         </Head>
         <Header/>
         <Component {...pageProps} />

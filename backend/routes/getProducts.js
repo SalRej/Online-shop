@@ -30,7 +30,6 @@ router.get('/',async (req,res)=>{
             item.variation_attributes.forEach(variation => {
                 if(variation.name=='Size' || variation.name == 'size'){
                     variation.values.forEach(value => {
-    
                         if(!arekDuplicates(avaibleSizes,value)){
                             avaibleSizes.push({
                                 name:value.name,

@@ -5,11 +5,13 @@
     a{
         text-decoration:none;
         color:black;
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
-.hide{
+.hidden{
     display: none;
-    transition: all 1s;
 }
 @import '_header.scss';
 @import '_footer.scss';

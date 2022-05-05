@@ -4,7 +4,7 @@ const Categorie = require('../models/Categories');
 
 router.get('/',async (req,res)=>{
     const queryParam = req.query.subCategorie;
-
+    console.log(queryParam);
     const result=  await Categorie.find({"categories.id":queryParam},{categories:1});
 
     const subCategorie = result[0].categories.filter((item)=>{

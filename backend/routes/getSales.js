@@ -22,6 +22,7 @@ router.get('/',async (req,res)=>{
             data.push({
                 name:item.name,
                 imageLink:item.image_groups[0].images[0].link,
+                imageAlt:item.image_groups[0].images[0].alt,
                 id:item.id
             })
         }

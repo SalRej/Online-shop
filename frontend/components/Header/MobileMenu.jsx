@@ -32,7 +32,7 @@ function MobileMenu(props) {
         </div>
         {isLoaded===true && categories.categories.map(item=>{
             return (
-                <Link key={item.id} href={`/${mainCategorie}/${item.id}`}>
+                <Link key={item.id} href={`/category/${mainCategorie}/${item.id}`}>
                     <div onClick={()=>{ props.toogleShow() }}className='categorie-info'>
                         <p>{item.name}</p>
                         <img src={`/images/${item.image}`}/>

@@ -109,14 +109,18 @@ function Products(props) {
                     handleSetFilterValues={handleSetFilterValues}
                 />
             </div>
+           
             {/* <h2>Number of results : {isLoaded && products.length}</h2> */}
             <div className='cards-holder'>
                 {   isLoaded===true && 
                     products.map(item=>{
-                        return <ProductsCard key={item.id} data={item}/>;
+                        
+                        return <ProductsCard key={item.id} data={item}
+                        link={`${router.asPath}/${item.id}`}
+                        />;
                     })
                 }
-                 {
+                {
                     noProducts &&
                     <h1 className='no-products'>No products were found</h1>
                 }

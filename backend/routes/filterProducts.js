@@ -41,7 +41,7 @@ const filterSizes = (arrToFilter,sizesFilter) =>{
         item.variation_attributes.forEach(variation_attribute =>{
             if(variation_attribute.name == "size" || variation_attribute.name =="Size"){
                 variation_attribute.values.forEach(value =>{
-                    if(sizesFilter.includes(value.value)){
+                        if(sizesFilter.includes(value.value)){
                         filteredProducts.add(item);
                     }
                 })

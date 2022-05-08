@@ -14,9 +14,6 @@ function Categorie() {
             fetch(process.env.URL + `/getCategorie?categorie=${categorie}&&test=10`)
             .then(res=>res.json())
             .then(data=>{
-                console.log(router.query.mainCategorie)
-                console.log("fetchna")
-                console.log(data[0]);
                 setMaincategorie(data[0]);
                 setIsLoaded(true);
             })
@@ -38,7 +35,6 @@ function Categorie() {
                 <img src={`/images/${mainCategorie.image}`}/>
             </div>
         }
-        {console.log(router.asPath)}
         {
             isLoaded===true && mainCategorie.categories.map(categorie => {
                 return <CategorieCard key={categorie.id} categorie={categorie} link={`${router.asPath}/${categorie.id}`}/>

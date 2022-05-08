@@ -10,8 +10,7 @@ function MyApp({ Component, pageProps }) {
         <Header/>
         <Component {...pageProps} />
         <Footer />
-        <Script src="https://kit.fontawesome.com/f62a6be0ed.js" crossorigin="anonymous">
-        </Script>
+        <Script src="https://kit.fontawesome.com/f62a6be0ed.js" crossorigin="anonymous"></Script>
     </Fragment>
   )
 }

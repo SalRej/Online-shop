@@ -17,14 +17,17 @@ router.get('/',async (req,res)=>{
     }while(set.size!=6)
     
     const data = [];
-    result.forEach((item,index)=>{
-        if(set.has(index)){
+    
+    set.forEach(randomIndex => {
+        try{
             data.push({
-                name:item.name,
-                imageLink:item.image_groups[0].images[0].link,
-                imageAlt:item.image_groups[0].images[0].alt,
-                id:item.id
+                name:result[randomIndex].name,
+                imageLink:result[randomIndex].image_groups[0].images[0].link,
+                imageAlt:result[randomIndex].image_groups[0].images[0].alt,
+                id:result[randomIndex].id
             })
+        }catch(e){
+            console.log(e);
         }
     })
     res.send(JSON.stringify({data:data}));

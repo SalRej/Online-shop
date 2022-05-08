@@ -34,7 +34,6 @@ function ProductDescription(props) {
             }
         })
         if(hasSwatches === false){
-            console.log("vleze")
             //this means the current product has no sawtch images and therefor
             //no variation , so i have to hande this with showing large images with no
             //variation value
@@ -63,7 +62,6 @@ function ProductDescription(props) {
             product.image_groups.forEach(item=>{
                 if(item.view_type=="large"){
                     setLargeImages((prev)=>{
-                        console.log("large");
                         return [...prev,item];
                     })
                 }else if(item.view_type=="small"){
@@ -79,7 +77,6 @@ function ProductDescription(props) {
         setProduct(props.product);
         setIsLoaded(true)
         getSwatches(props.product);
-        console.log(props.product.variation_attributes)
 
         try{
             //if there are size variations , set the first one as default check
@@ -120,7 +117,6 @@ function ProductDescription(props) {
             {
                 iseLoaded &&
                 <div className='info-holder'>
-                    {console.log(currentSizeVariation)}
                     <ImageSection 
                         largeImages={largeImages}
                         smallImages={smallImages}

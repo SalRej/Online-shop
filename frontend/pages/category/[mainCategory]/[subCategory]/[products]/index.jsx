@@ -28,7 +28,7 @@ function Products(props) {
         //3.if its checkbox type check is it uncheck or checked value
         //4.if its checked then check to see if it's already in the array 
         //5.if not then add id
-        //6.if the value is unckecked then filter the array to return everythin
+        //6.if the value is unckecked then filter the array to return everything
         //exept the element with value === the uncked box
 
         if(e.target.type === "range"){
@@ -84,7 +84,7 @@ function Products(props) {
     useEffect(()=>{
         filterProducts();
     },[filterValues])
-
+    
     useEffect(()=>{
         if(props.products.length===0){
             setNoProducts(true);

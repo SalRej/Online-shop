@@ -8,7 +8,6 @@ function CategorieCard(props) {
   }
   return (
     <div className='categorie-card-container'>
-      {/* {console.log(link)} */}
         <Link href={link}>
           <div>
             <h2>{props.categorie.name}</h2>

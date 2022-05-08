@@ -1,10 +1,11 @@
-import React ,{useState , useEffect} from 'react'
 import Link from "next/link";
+import Head from 'next/head';
 function Home(props) {
-
-    console.log(props.products);
     return (
         <div className='home-page'>
+            <Head>
+                <title>Home page / Get sales</title>
+            </Head>
             <div className='main-screen'>
                 <h2>MID SESSSION SALE</h2>
                 <h1>NOW UP TO 40% OFF</h1>

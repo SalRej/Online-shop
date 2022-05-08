@@ -46,6 +46,7 @@
   width: 3em;
   height: auto;
   border-radius: solid 1px white;
+  width: 500px;
 }
 
 .header .search-bar-holder {

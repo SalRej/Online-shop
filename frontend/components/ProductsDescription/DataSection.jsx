@@ -1,6 +1,22 @@
 import React from 'react'
 
 function DataSection(props) {
+    const addToCart= () =>{
+        const productData = {
+            id:props.product.id,
+            name:props.product.name,
+            price:props.currentPrice
+        }
+        const cart = JSON.parse(localStorage.getItem("cart"));
+        console.log(typeof(cart));
+        if(cart===null){
+            const createdCart = [productData];
+            localStorage.setItem("cart",JSON.stringify(createdCart));
+        }else{
+            cart.push(productData);
+            localStorage.setItem("cart",JSON.stringify(cart));
+        }
+    }
   return (
     <div className='data-section'>
         <p className='item-number'>Item No.{props.product.id}</p>
@@ -66,7 +82,7 @@ function DataSection(props) {
                 </div>
              </React.Fragment>
         }
-        <button>Add to cart</button>
+        <button onClick={addToCart}>Add to cart</button>
     </div>
   )
 }

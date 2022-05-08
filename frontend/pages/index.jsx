@@ -1,6 +1,18 @@
 import Link from "next/link";
 import Head from 'next/head';
+import { useEffect } from "react";
 function Home(props) {
+
+    useEffect(()=>{
+        const t = [{
+            name:"test",
+            price:20
+        }]
+        localStorage.setItem("test",JSON.stringify(t));
+        t.push({name:"test2",price:100})
+        localStorage.setItem("test",JSON.stringify(t));
+    },[])
+
     return (
         <div className='home-page'>
             <Head>

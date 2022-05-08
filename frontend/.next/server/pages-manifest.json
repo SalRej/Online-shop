@@ -1,5 +1,9 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/category/[mainCategory]/[subCategory]/[products]/[productId]": "pages/category/[mainCategory]/[subCategory]/[products]/[productId].js",
+  "/category/[mainCategory]/[subCategory]/[products]": "pages/category/[mainCategory]/[subCategory]/[products].js",
+  "/category/[mainCategory]": "pages/category/[mainCategory].js",
+  "/category/[mainCategory]/[subCategory]": "pages/category/[mainCategory]/[subCategory].js"
 }

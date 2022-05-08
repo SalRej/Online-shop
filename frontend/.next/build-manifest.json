@@ -25,6 +25,16 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/category/[mainCategory]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/category/[mainCategory].js"
+    ],
+    "/category/[mainCategory]/[subCategory]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/category/[mainCategory]/[subCategory].js"
+    ],
     "/category/[mainCategory]/[subCategory]/[products]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

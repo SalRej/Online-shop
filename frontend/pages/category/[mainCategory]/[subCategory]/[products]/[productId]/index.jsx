@@ -76,7 +76,7 @@ function ProductDescription(props) {
         setProduct(props.product);
         setIsLoaded(true)
         getSwatches(props.product);
-
+        setCurrentPrice(props.product.price);
         try{
             //if there are size variations , set the first one as default check
             setCurrentSizeVariation(props.product.variation_attributes[1].values[0].value);
@@ -125,6 +125,7 @@ function ProductDescription(props) {
                     <DataSection 
                         product={product}
                         swatchImages={swatchImages}
+                        smallImages={smallImages}
                         currentColorVariation={currentColorVariation}
                         changeColorVariation={changeColorVariation}
                         currentSizeVariation={currentSizeVariation}

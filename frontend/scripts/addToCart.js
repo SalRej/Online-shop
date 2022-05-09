@@ -7,9 +7,10 @@ const addToCart= (props) =>{
         color:"No Color",
         size:"No Size",
         price:props.currentPrice,
-        totalPrice:props.currentPrice
+        totalPrice:props.currentPrice,
+        imgLink:props.smallImages[0].images[0].link
     }
-
+    
     if(props.currentColorVariation !=''){
         //if the product has color variation extract the color values from procut
         //see which color value === the current color variation

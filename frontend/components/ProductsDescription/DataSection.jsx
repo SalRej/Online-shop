@@ -3,7 +3,6 @@ import addToCart from '../../scripts/addToCart';
 
 function DataSection(props) {
 
-    
   return (
     <div className='data-section'>
         <p className='item-number'>Item No.{props.product.id}</p>

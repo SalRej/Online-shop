@@ -21,7 +21,7 @@ const Header = () =>{
         <div className='header'>
             {(screenWidth <= 1000) &&  <i onClick={toogleToShowMobileMenu} className="menu fa-solid fa-bars"></i>}
             {toShowMobileMenu===true && <MobileMenu toogleShow={toogleToShowMobileMenu}/>}
-            <Link href='/home'>
+            <Link href='/'>
                 <img className='logo' src='/images/images.png'/>
             </Link>
             <Link href='/category/mens'>

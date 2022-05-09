@@ -7,7 +7,6 @@ function Cart() {
     useEffect(()=>{
         const cart = JSON.parse(localStorage.getItem('cart'));
         setIsLoaded(true);
-        console.log(typeof(cart))
         setCart(cart);
     },[])
 
@@ -15,6 +14,7 @@ function Cart() {
         <React.Fragment>
             {
                 (isLoaded===true && cart!=null)?
+                    //if is loaded and cart exist 
                     cart.map(product => {
                     return(<div>
                         <p>{product.name}</p>

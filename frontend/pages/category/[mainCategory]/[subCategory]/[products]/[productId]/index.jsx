@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ImageSection from '../../../../../../components/ProductsDescription/ImageSection';
 import DataSection from '../../../../../../components/ProductsDescription/DataSection';
-import { useRouter } from 'next/router';
 function ProductDescription(props) {
 
     const [product,setProduct] = useState();
@@ -37,7 +36,7 @@ function ProductDescription(props) {
             //this means the current product has no sawtch images and therefor
             //no variation , so i have to hande this with showing large images with no
             //variation value
-            setCurrentColorVariation("none");
+            setCurrentColorVariation('');
             
         }
     }
@@ -46,7 +45,7 @@ function ProductDescription(props) {
         setSmallImages([]);
         //picks all small and large images where the variation == current variation
         //if there is no variation then pick all
-        if(currentColorVariation!='none'){
+        if(currentColorVariation!=''){
             product.image_groups.forEach(item=>{
                 if(item.view_type=="large" && item.variation_value==currentColorVariation){
                     setLargeImages((prev)=>{
@@ -126,8 +125,8 @@ function ProductDescription(props) {
                     <DataSection 
                         product={product}
                         swatchImages={swatchImages}
-                        changeColorVariation={changeColorVariation}
                         currentColorVariation={currentColorVariation}
+                        changeColorVariation={changeColorVariation}
                         currentSizeVariation={currentSizeVariation}
                         changeSizeVariation={changeSizeVariation}
                         currentPrice = {currentPrice}

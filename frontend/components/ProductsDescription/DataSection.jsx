@@ -5,18 +5,29 @@ function DataSection(props) {
         const productData = {
             id:props.product.id,
             name:props.product.name,
+            quantity:1,
             price:props.currentPrice
         }
         const cart = JSON.parse(localStorage.getItem("cart"));
-        console.log(typeof(cart));
         if(cart===null){
             const createdCart = [productData];
             localStorage.setItem("cart",JSON.stringify(createdCart));
         }else{
-            cart.push(productData);
+            let isInCart = false;
+            cart.forEach(product =>{
+                if(product.id === productData.id){
+                    isInCart = true;
+                    product.quantity++;
+                }
+            })
+
+            if(isInCart === false){
+                cart.push(productData);
+            }
             localStorage.setItem("cart",JSON.stringify(cart));
         }
     }
+    
   return (
     <div className='data-section'>
         <p className='item-number'>Item No.{props.product.id}</p>

@@ -22,7 +22,7 @@ const Header = () =>{
             {(screenWidth <= 1000) &&  <i onClick={toogleToShowMobileMenu} className="menu fa-solid fa-bars"></i>}
             {toShowMobileMenu===true && <MobileMenu toogleShow={toogleToShowMobileMenu}/>}
             <Link href='/home'>
-                <img className='logo' src='/images/images.png' alt='logo' />
+                <img className='logo' src='/images/images.png'/>
             </Link>
             <Link href='/category/mens'>
                 <div className='categorie'>
@@ -43,7 +43,9 @@ const Header = () =>{
             {(screenWidth <= 700) &&  <i className="fa-solid fa-magnifying-glass"></i>}
             <i className="fa-solid fa-user"></i>
             <i className="fa-solid fa-heart"></i>
-            <i className="fa-solid fa-bag-shopping"></i>
+            <Link href='/cart'>
+                <i className="fa-solid fa-bag-shopping"></i>
+            </Link>
         </div>
     )
 }

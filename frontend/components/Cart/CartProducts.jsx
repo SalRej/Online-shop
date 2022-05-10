@@ -23,13 +23,13 @@ function CartProducts(props){
                                     <p>Size: {product.size}</p>
                                 </div>
                             </div>
-                            <p>${product.price}</p>
+                            <p className='price'>${product.price}</p>
                             <div className='quantity'>
                                 <p onClick={()=>{props.removeProduct(product)}}>-</p>
                                 <p>{product.quantity}</p>
                                 <p onClick={()=>{props.addProduct(product)}}>+</p>
                             </div>
-                            <p>${product.totalPrice}</p>
+                            <p className='total-price'>${product.totalPrice}</p>
                             <img onClick={()=>{props.onPressDeleteFromCart(product)}} className='close-icon' src='/images/close.png' />
                         </div>
                     )

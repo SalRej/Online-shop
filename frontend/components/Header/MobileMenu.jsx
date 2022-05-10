@@ -5,12 +5,11 @@ function MobileMenu(props) {
     const [isLoaded,setIsLoaded] = useState(false);
     const [mainCategorie,setMaincategorie] = useState('mens');
     const [categories,setCategories] = useState();
-    
     useEffect(()=>{
+        console.log("fetch")
         fetch(process.env.URL + `/getCategorie?categorie=${mainCategorie}`)
         .then(res=>res.json())
         .then(data=>{
-            
             setCategories(data[0]);
             setIsLoaded(true);
         })

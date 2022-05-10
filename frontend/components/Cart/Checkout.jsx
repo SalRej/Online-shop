@@ -5,7 +5,7 @@ function Checkout(props) {
   useEffect(()=>{
     const sum = 0;
     props.cart.forEach(product=>{
-      sum+=product.totalPrice;
+      sum+=Number(product.totalPrice);
     })
     setTotalPrice(Number(sum).toFixed(2))
   },[props])

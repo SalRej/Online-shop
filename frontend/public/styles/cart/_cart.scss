@@ -14,3 +14,17 @@
     }
     
 }
+
+@media all and (max-width:1000px){
+    .cart-holder{
+        .container{
+            display: block;
+        }
+    }
+}
+
+@media all and (max-width:700px){
+    .cart-holder{
+        width: 100%;
+    }
+}

@@ -21,7 +21,7 @@ function Cart() {
         cart.forEach(item =>{
             if(JSON.stringify(item) === JSON.stringify(product)){
                 item.quantity++;
-                item.totalPrice=item.price*item.quantity;
+                item.totalPrice=Number(item.price*item.quantity).toFixed(2);
             }
         })
         localStorage.setItem('cart',JSON.stringify(cart));
@@ -33,7 +33,7 @@ function Cart() {
             if(JSON.stringify(item) === JSON.stringify(product)){
                 if(item.quantity>1){
                     item.quantity--;
-                    item.totalPrice=item.price*item.quantity;
+                    item.totalPrice=Number(item.price*item.quantity).toFixed(2);
                 }
             }
         })

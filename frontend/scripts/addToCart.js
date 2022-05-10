@@ -48,7 +48,7 @@ const addToCart= (props) =>{
             if(product.id === productData.id && product.color === productData.color && product.size === productData.size){
                 isInCart = true;
                 product.quantity++;
-                product.totalPrice = product.price * product.quantity;
+                product.totalPrice = Number(product.price * product.quantity).toFixed(2);
             }
         })
 

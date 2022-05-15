@@ -30,7 +30,7 @@ router.get('/',async (req,res)=>{
             console.log(e);
         }
     })
-    res.send(JSON.stringify({data:data}));
+    res.send({data:data});
 })
 
 module.exports = router;

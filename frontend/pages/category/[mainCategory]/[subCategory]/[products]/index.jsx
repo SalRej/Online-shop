@@ -7,7 +7,7 @@ function Products(props) {
     const [noProducts,setNoProducts] = useState(false);
     const [isLoaded,setIsLoaded] = useState(false);
     const [showFilters,setShowFilters] = useState(false);//show filters menu or not
-    const [products,setProducts] = useState();//data of the products fetcher from backend
+    const [products,setProducts] = useState(props.data);//data of the products fetcher from backend
     const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});//values to send to the server to filter
     
 
@@ -76,7 +76,7 @@ function Products(props) {
             }else{
                 setNoProducts(false);
             }
-            setProducts(data);
+            //setProducts(data);
             setIsLoaded(true);
         })
     }

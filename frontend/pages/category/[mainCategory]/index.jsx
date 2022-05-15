@@ -11,10 +11,11 @@ function Categorie() {
 
     useEffect(()=>{
         if(router.isReady === true)
-            fetch(process.env.URL + `/getCategorie?categorie=${categorie}&&test=10`)
+            fetch(process.env.URL + `/getCategorie?categorie=${categorie}`)
             .then(res=>res.json())
             .then(data=>{
-                setMaincategorie(data[0]);
+                console.log(data.data);
+                setMaincategorie(data.data);
                 setIsLoaded(true);
             })
     },[router.isReady,categorie])

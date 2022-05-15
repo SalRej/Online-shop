@@ -10,7 +10,7 @@ router.get('/',async (req,res)=>{
         return item.id === req.query.subCategorie;
     })
     
-    res.send(JSON.stringify({data:subCategorie[0]}))
+    res.send({data:subCategorie[0]})
 
 })
 

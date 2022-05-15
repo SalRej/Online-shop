@@ -1,8 +1,6 @@
-const express = require('express'); //Line 1
-const app = express(); //Line 2
-const port = 5000; //Line 3
-const cors = require("cors");
-//const compresssion = require("compression");
+const express = require('express');
+const port = 5000;
+const app = require('./app'); 
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/online-shop-react');
@@ -10,24 +8,5 @@ const db = mongoose.connection;
 db.on('error',(err)=>console.log(err));
 db.once('open',()=>console.log("conected"));
 
-// app.use(compresssion({
-//     level:6,
-//     threshold:0
-// }))/
-app.use(cors());
-// This displays message that the server running and listening to specified port
+
 app.listen(port, () => console.log(`Listening on port ${port}`)); //Line 6
-
-const getSales = require('./routes/getSales');
-const getCategorie  = require('./routes/getCategorie');
-const getSubCategorie = require('./routes/getSubCategorie');
-const getProducts = require('./routes/getProducts');
-const filterProducts = require('./routes/filterProducts');
-const getProdctDescription = require('./routes/getProductDescription');
-
-app.use("/getSales",getSales);
-app.use("/getCategorie",getCategorie);
-app.use("/getSubCategorie",getSubCategorie);
-app.use("/getProducts",getProducts);
-app.use('/filterProducts',filterProducts);
-app.use('/getProductDescription',getProdctDescription);

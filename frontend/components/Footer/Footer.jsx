@@ -1,7 +1,7 @@
 import React from 'react'
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className='footer' data-testid='footer-test'>
       <div className='holder'>
         <div>
           <h3>Help and information</h3>

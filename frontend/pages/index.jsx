@@ -3,7 +3,7 @@ import Head from 'next/head';
 function Home(props) {
 
     return (
-        <div className='home-page'>
+        <div className='home-page' data-testid='home-test'>
             <Head>
                 <title>Home page / Get sales</title>
             </Head>
@@ -13,12 +13,11 @@ function Home(props) {
                 <div className='sales-card-holder'>
                     {   
                         props.products.map((item)=>{
-                            {console.log(item.imageLink)}
                             return(
                                 <Link href='/test' key={item.id}>
                                     <div className='sales-card'>
                                         <div className='image-container'>
-                                            <img src={`images/${item.imageLink}`} alt ={item.imageAlt} />   
+                                            <img src={`images/${item.imageLink}`} alt={item.imageAlt} />   
                                         </div>
                                         <p>{item.name}</p>
                                     </div>

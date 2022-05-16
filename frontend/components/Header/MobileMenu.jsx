@@ -6,7 +6,6 @@ function MobileMenu(props) {
     const [mainCategorie,setMaincategorie] = useState('mens');
     const [categories,setCategories] = useState();
     useEffect(()=>{
-        console.log("fetch")
         fetch(process.env.URL + `/getCategorie?categorie=${mainCategorie}`)
         .then(res=>res.json())
         .then(data=>{
@@ -16,7 +15,7 @@ function MobileMenu(props) {
     },[mainCategorie]);
 
     return (
-    <div className='mobile-menu'>
+    <div className='mobile-menu' data-testid="mobile-menu-test">
 
         <div className='categorie-holder'>
             <div onClick={()=>{setMaincategorie('mens')}} className='mobile-categorie'>

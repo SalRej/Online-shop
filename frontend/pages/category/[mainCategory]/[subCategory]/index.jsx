@@ -4,24 +4,24 @@ import CategorieCard from '../../../../components/Categorie/CategorieCard';
 
 function SubCategorie() {
     const router = useRouter();
-    const subCategory = router.query.subCategory;
+    const finalSubCategoryId = router.query.subCategory;
     const [subCategories,setSubCategories] = useState();
     const [isLoaded,setIsLoaded] = useState(false);
 
     useEffect(()=>{
         if(router.isReady === true){
-            fetch(process.env.URL + `/getSubCategorie?subCategorie=${subCategory}`)
+            fetch(`/api/getFinalSubCategory?finalSubCategoryId=${finalSubCategoryId}`)
             .then(res=>res.json())
             .then(data=>{
                 setIsLoaded(true);
                 setSubCategories(data.data);
             })
         }
-    },[router.isReady,subCategory]);
+    },[router.isReady,finalSubCategoryId]);
     return (
         <div>
             {
-              isLoaded &&  subCategories.categories.map(item=>{
+              isLoaded &&  subCategories.map(item=>{
                     return <CategorieCard key={item.id} categorie={item} link={`${router.asPath}/${item.id}?name=${item.name}`}/>
                 })
             }    

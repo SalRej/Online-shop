@@ -5,11 +5,13 @@ function MobileMenu(props) {
     const [isLoaded,setIsLoaded] = useState(false);
     const [mainCategorie,setMaincategorie] = useState('mens');
     const [categories,setCategories] = useState();
+
     useEffect(()=>{
-        fetch(process.env.URL + `/getCategorie?categorie=${mainCategorie}`)
+        fetch(`/api/getSubCategory?category=${mainCategorie}`)
         .then(res=>res.json())
         .then(data=>{
-            setCategories(data[0]);
+            const {subCategoryData} = data;
+            setCategories(subCategoryData);
             setIsLoaded(true);
         })
     },[mainCategorie]);
@@ -27,7 +29,7 @@ function MobileMenu(props) {
                 <p>Women</p>
             </div>
         </div>
-        {isLoaded===true && categories.categories.map(item=>{
+        {isLoaded===true && categories.map(item=>{
             return (
                 <Link key={item.id} href={`/category/${mainCategorie}/${item.id}`}>
                     <div onClick={()=>{ props.toogleShow() }}className='categorie-info'>

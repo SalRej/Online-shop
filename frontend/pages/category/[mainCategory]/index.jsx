@@ -8,22 +8,25 @@ function Categorie() {
     const categorie = router.query.mainCategory;
     const [isLoaded,setIsLoaded] = useState(false);
     const [mainCategorie,setMaincategorie] = useState();
+    const [subCategory,setSubCategory] = useState();
 
     useEffect(()=>{
-        if(router.isReady === true)
-            fetch(process.env.URL + `/getCategorie?categorie=${categorie}`)
+        if(router.isReady === true){
+            fetch(`/api/getSubCategory?category=${categorie}`)
             .then(res=>res.json())
             .then(data=>{
-                console.log(data.data);
-                setMaincategorie(data.data);
+                const {mainCategoryData} = data;
+                const {subCategoryData} = data;
+                setMaincategorie(mainCategoryData);
+                setSubCategory(subCategoryData);
                 setIsLoaded(true);
             })
+        }
     },[router.isReady,categorie])
 
     if(isLoaded === false) return <p>Loading</p>
     if(typeof(mainCategorie)==='undefined') return <p>No data</p>
     return (
-        
     <div>
         {
             isLoaded===true &&
@@ -37,7 +40,7 @@ function Categorie() {
             </div>
         }
         {
-            isLoaded===true && mainCategorie.categories.map(categorie => {
+            isLoaded===true && subCategory.map(categorie => {
                 return <CategorieCard key={categorie.id} categorie={categorie} link={`${router.asPath}/${categorie.id}`}/>
             })
         }

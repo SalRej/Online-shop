@@ -68,7 +68,7 @@ function Products(props) {
     }
 
     const filterProducts = () =>{
-        fetch(process.env.URL + `/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
+        fetch(`/api/filterProducts?productsType=${productsType}&&price=${filterValues.price}&&colors=${filterValues.color}&&sizes=${filterValues.size}`)
         .then(res=>res.json())
         .then(data=>{
             if(data.length===0){
@@ -76,7 +76,7 @@ function Products(props) {
             }else{
                 setNoProducts(false);
             }
-            //setProducts(data);
+            setProducts(data);
             setIsLoaded(true);
         })
     }

@@ -1,6 +1,8 @@
 
 .mobile-menu{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     width: 30vw;
+
     position: absolute;
     z-index: 1;
     left:0;
@@ -18,7 +20,7 @@
             display: block;
             color:black;
             &:hover{
-                background-color: rgb(95, 94, 94);
+                background-color: rgba(100, 148, 237);
                 color:white;
                 cursor: pointer;
             }
@@ -39,7 +41,7 @@
             margin:auto;
         }
         &:hover{
-            background-color:rgba(170, 170, 170, 0.448);
+            background-color: rgba(100, 148, 237, 0.459);
             cursor: pointer;
         }
     }

@@ -6,18 +6,14 @@ function Products(props) {
 
     const [noProducts,setNoProducts] = useState(false);
     const [isLoaded,setIsLoaded] = useState(false);
-    const [showFilters,setShowFilters] = useState(false);//show filters menu or not
-    const [products,setProducts] = useState(props.data);//data of the products fetcher from backend
-    const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});//values to send to the server to filter
+    const [showFilters,setShowFilters] = useState(false);
+    const [products,setProducts] = useState(props.products);
+    const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});
     
 
     const router = useRouter();
     const productsType = router.query.products;
-    
-    //takes the params from query string
-    //const [searchParams] = useSearchParams();
-    //const name = searchParams.get('name');
-    
+
     const toogleShowFilters = (bool) =>{
         setShowFilters(bool);
     }
@@ -82,7 +78,10 @@ function Products(props) {
     }
     
     useEffect(()=>{
-        filterProducts();
+        //prevents it from running on first render
+        if(isLoaded===true){
+            filterProducts();
+        }
     },[filterValues])
     
     useEffect(()=>{
@@ -91,8 +90,6 @@ function Products(props) {
         }else{
             setNoProducts(false);
         }
-
-        setProducts(props.products);
         setIsLoaded(true);
     },[])
 
@@ -110,13 +107,16 @@ function Products(props) {
                 />
             </div>
            
-            {/* <h2>Number of results : {isLoaded && products.length}</h2> */}
             <div className='cards-holder'>
-                {   isLoaded===true && 
-                    products.map(item=>{
-                        
-                        return <ProductsCard key={item.id} data={item}
-                        link={`${router.asPath}/${item.id}`}
+                {   
+                    isLoaded===true && 
+                    products.map((product,index)=>{
+                        return <ProductsCard 
+                            key={index} 
+                            product={product}
+                            largeImage={product.largeImage}
+                            swatchImages={product.swatchImages}
+                            link={`${router.asPath}/${product.id}`}
                         />;
                     })
                 }
@@ -131,11 +131,11 @@ function Products(props) {
 
 export async function getServerSideProps(context) {
     const productsType = context.params.products;
-    const res = await fetch(process.env.URL + `/getProducts?productsType=${productsType}`)
+    const res = await fetch(process.env.URL + `/getProducts?productsType=${productsType}`);
     const data = await res.json();
     return {
       props: {
-          products:data.data,
+          products:data.products,
           price:{
               minPrice:data.minPrice,
               maxPrice:data.maxPrice

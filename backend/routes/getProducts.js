@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const Products = require('../models/Product-old');
+const Products = require('../models/product');
+const variationAttributes = require('../models/variationAttribute');
+const imageGroups = require('../models/imageGroup');
 
-const arekDuplicates = (arr,values) =>{
-
+const isDuplicate = (arr,value) =>{
+    //given array and value cheks if the array already contains this value
     for(item of arr){
-        if(item.name === values.name && item.value === values.value){
+        if(item.name === value.name && item.value === value.value){
             return true;
         }
     }
-
     return false;
 }
 router.get('/',async (req,res)=>{
@@ -19,38 +20,60 @@ router.get('/',async (req,res)=>{
     //finds the min and max price of all queried products
     //find all avaible sizes in which those products are sold
     
-    const queryParam = req.query.productsType;
-    const result = await Products.find({primary_category_id:queryParam});
-    if(result.length!=0){
-        let min = result[0].price;
-        let max = result[0].price;
-        const avaibleSizes = [];
-        //find min and max price 
-        result.forEach(item=>{
-            item.variation_attributes.forEach(variation => {
-                if(variation.name=='Size' || variation.name == 'size'){
-                    variation.values.forEach(value => {
-                        if(!arekDuplicates(avaibleSizes,value)){
-                            avaibleSizes.push({
-                                name:value.name,
-                                value:value.value
-                            })  
-                        }
-                    })
-                }
-            })
+    //finds all products with required primary category
+    const productType = req.query.productsType;
+    const products = await Products.find({primary_category_id:productType});
     
-            if(item.price < min){
-                min = item.price;
-            }
-            if(item.price > max){
-                max = item.price;
+    //find min and max price 
+    const prices = await Products.aggregate([ 
+        {$match:{primary_category_id:productType}},
+        { "$group": { 
+            "_id": null,
+            "max": { "$max": "$price" }, 
+            "min": { "$min": "$price" } 
+        }}
+    ])
+
+    const avaibleSizes = [];
+    const data = await Promise.all(products.map(async (product)=>{
+        //takes all sizes for current product
+        const sizeVariations = await variationAttributes.find({product_id:product.id,id:'size'},{values:1})
+
+        //if there are new sizes avaible add them
+        sizeVariations[0].values.forEach(variation=>{
+            if(!isDuplicate(avaibleSizes,variation)){
+                avaibleSizes.push(variation);
             }
         })
-        res.send(JSON.stringify({data:result,minPrice:min,maxPrice:max,avaibleSizes:avaibleSizes}));
-    }else{
-        res.send(JSON.stringify({data:[]}));
-    }
+
+        //finds 1 large image and all swatches
+        const {image_groups} = product;
+        const largeImage = await imageGroups.find({_id:{$in:image_groups},view_type:'large'}).limit(1);
+        const swatchImages = await imageGroups.find({_id:{$in:image_groups},view_type:'swatch'});
+
+        //pics only 1 link and alt for image
+        const largeImageData = largeImage[0].images;
+
+        //gets data for all swatch images
+        const swatchImagesData = [];
+        swatchImages.forEach(swatchImage=>{
+            const imageData = swatchImage.images[0];
+            swatchImagesData.push(imageData);
+        })
+
+        return({
+            productData:product,
+            largeImage:largeImageData[0],
+            swatchImages:swatchImagesData
+        });
+    }))
+
+    res.send({
+        products:data,
+        minPrice:prices[0].min,
+        maxPrice:prices[0].max,
+        avaibleSizes:avaibleSizes
+    });
 })
 
 module.exports =router;

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Products = require('../models/Product-old');
+const Products = require('../models/product');
 
 router.get('/',async (req,res)=>{
     const productId = req.query.productId;

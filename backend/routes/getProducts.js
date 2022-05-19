@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Products = require('../models/Product');
+const Products = require('../models/Product-old');
 
 const arekDuplicates = (arr,values) =>{
 

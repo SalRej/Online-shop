@@ -1,15 +1,7 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    price_max:{
-        type:Number,
-        required:true
-    },
-    page_description:{
-        type:String,
-        required:true
-    },
-    page_title:{
+    id:{
         type:String,
         required:true
     },
@@ -21,16 +13,16 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    variations_attributes:{
-        type:Array,
-        required:true
-    },
     primary_category_id:{
         type:String,
         required:true
     },
+    variation_attributes:{
+        type:[mongoose.SchemaTypes.ObjectId],
+        required:true
+    },
     image_groups:{
-        type:Array,
+        type:[mongoose.SchemaTypes.ObjectId],
         required:true
     },
     short_description:{
@@ -45,22 +37,22 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    variation_attributes:{
-        type:Array,
+    page_description:{
+        type:String,
+        required:true
+    },
+    page_title:{
+        type:String,
         required:true
     },
     long_description:{
         type:String,
         required:true
     },
-    id:{
-        type:String,
-        required:true
-    },
-    c_isSale:{
+    isSale:{
         type:Boolean,
-        required:false
+        required:true
     }
 })
 
-module.exports = mongoose.model('Product',productSchema);
+module.exports = mongoose.model('product',productSchema,'products');

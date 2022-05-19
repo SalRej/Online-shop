@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Products = require('../models/Product');
+const Products = require('../models/Product-old');
 
 const filterColors = (arrToFilter,colorsFilter) =>{
     //the goal is to take the values that the swatches hold

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Head from 'next/head';
 function Home(props) {
-
     return (
         <div className='home-page' data-testid='home-test'>
             <Head>

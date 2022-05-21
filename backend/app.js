@@ -23,7 +23,6 @@ const getFinalSubCategory = require('./routes/getFinalSubCategory');
 const getProducts = require('./routes/getProducts');
 const filterProducts = require('./routes/filterProducts');
 const getProdctDescription = require('./routes/getProductDescription');
-const transfer = require('./routes/transfer-db');
 // const Categories = require('./models/Categories');
 
 app.use("/getSales",getSales);
@@ -32,6 +31,5 @@ app.use("/getFinalSubCategory",getFinalSubCategory);
 app.use("/getProducts",getProducts);
 app.use('/filterProducts',filterProducts);
 app.use('/getProductDescription',getProdctDescription);
-app.use('/transfer',transfer);
 
 module.exports = app;

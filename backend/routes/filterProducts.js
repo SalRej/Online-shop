@@ -22,16 +22,16 @@ router.get('/',async (req,res)=>{
     //search for products with chosen sizes and colors
     let products = [];
     if(colorFilters[0]=='' && sizeFilters[0]==''){
-        products = await Products.find({primary_category_id:productsType});
+        products = await Products.find({price:{$lte:price},primary_category_id:productsType});
     }
     if(colorFilters[0]!='' && sizeFilters[0]!=''){
-        products = await Products.find({$and:[{id:{$in:colors}},{id:{$in:sizes}}],primary_category_id:productsType});
+        products = await Products.find({$and:[{id:{$in:colors}},{id:{$in:sizes},price:{$lte:price}}],primary_category_id:productsType});
     }
     if(colorFilters[0]!='' && sizeFilters[0]==''){
-        products = await Products.find({id:{$in:colors},primary_category_id:productsType});
+        products = await Products.find({id:{$in:colors},price:{$lte:price},primary_category_id:productsType});
     }
     if(colorFilters[0]=='' && sizeFilters[0]!=''){
-        products = await Products.find({id:{$in:sizes},primary_category_id:productsType});
+        products = await Products.find({id:{$in:sizes},price:{$lte:price},primary_category_id:productsType});
     }
 
     //construct object to send to fronend

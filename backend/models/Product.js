@@ -55,9 +55,4 @@ const productSchema = new mongoose.Schema({
     }
 })
 
-
-productSchema.methods.getByProductId=function(id){
-    if(this.product_id === id)
-        return this;
-}
 module.exports = mongoose.model('product',productSchema,'products');

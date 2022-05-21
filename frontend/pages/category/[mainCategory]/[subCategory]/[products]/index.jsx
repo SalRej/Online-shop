@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router';
 import ProductsCard from '../../../../../components/ProductCard/ProductsCard';
 import FiltersMenu from '../../../../../components/Filters/FiltersMenu';
@@ -9,7 +9,7 @@ function Products(props) {
     const [showFilters,setShowFilters] = useState(false);
     const [products,setProducts] = useState(props.products);
     const [filterValues,setFilterValues]=useState({price:0,color:[],size:[]});
-    
+    const isFristRender = useRef(true);
 
     const router = useRouter();
     const productsType = router.query.products;
@@ -72,15 +72,17 @@ function Products(props) {
             }else{
                 setNoProducts(false);
             }
-            setProducts(data);
+            setProducts(data.data);
             setIsLoaded(true);
         })
     }
     
     useEffect(()=>{
         //prevents it from running on first render
-        if(isLoaded===true){
+        if(isFristRender.current===false){
             filterProducts();
+        }else{
+            isFristRender.current=false;
         }
     },[filterValues])
     
@@ -102,11 +104,12 @@ function Products(props) {
                     toogleShowFilters={toogleShowFilters}
                     price={props.price}
                     avaibleSizes={props.avaibleSizes}
+                    avaibleColors={props.avaibleColors}
                     filterValues={filterValues}
                     handleSetFilterValues={handleSetFilterValues}
                 />
             </div>
-           
+           <p>Num products {products.length}</p>
             <div className='cards-holder'>
                 {   
                     isLoaded===true && 
@@ -141,6 +144,7 @@ export async function getServerSideProps(context) {
               maxPrice:data.maxPrice
           },
           avaibleSizes:data.avaibleSizes,
+          avaibleColors:data.avaibleColors,
           name:context.query.name
       },
     }

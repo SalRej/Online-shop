@@ -27,7 +27,6 @@ function DataSection(props) {
                                             <label htmlFor={item.variation_value} className='animate__animated animate__flipInX'>
                                                 <img 
                                                     onClick={()=>{props.changeColorVariation(item.variation_value)}}
-                                                    key={index}
                                                     src={`/images/${image.link}`}
                                                 />
                                             </label>

@@ -1,98 +1,64 @@
 const express = require('express');
 const router = express.Router();
 const Products = require('../models/product');
+const imageGroups = require('../models/imageGroup');
+const variationAttribute = require('../models/variationAttribute');
 
-const filterColors = (arrToFilter,colorsFilter) =>{
-    //the goal is to take the values that the swatches hold
-    //and check the variation attributes color values
-    //if the color value === to swatch value
-    //and the color name includes the words from filterColors array
-    //then this products can continue
-    const filteredProducts = new Set();
-    arrToFilter.forEach((item)=>{
-        const swatchValues = []
-        item.image_groups.forEach(item=>{
-            if(item.view_type=='swatch' && typeof(variation_value)!=undefined){
-                swatchValues.push(item.variation_value);
-            }
-        })
-
-        item.variation_attributes.forEach(variation_attribute =>{
-            if(variation_attribute.name == "color" || variation_attribute.name =="Color"){
-                variation_attribute.values.forEach(value =>{
-                    colorsFilter.forEach(color =>{
-                        if(value.name.includes(color) && swatchValues.includes(value.value)){
-                            filteredProducts.add(item);
-                        }
-                    })
-                })
-            }
-        })
-    })
-    return Array.from(filteredProducts);
-}
-const filterSizes = (arrToFilter,sizesFilter) =>{
-    //cheks the size variation attributes to be in the sizeFilter array
-    //if they are then add the product 
-    //using set becouse 1 products can include 1 or more sizes that are in sizesFilter array
-    //so set prevents from pushing duplicates , at the end just converts it to an array
-    const filteredProducts = new Set();
-    arrToFilter.forEach(item=>{
-        item.variation_attributes.forEach(variation_attribute =>{
-            if(variation_attribute.name == "size" || variation_attribute.name =="Size"){
-                variation_attribute.values.forEach(value =>{
-                        if(sizesFilter.includes(value.value)){
-                        filteredProducts.add(item);
-                    }
-                })
-            }
-        })
-
-    })
-
-    return Array.from(filteredProducts);
-}
 router.get('/',async (req,res)=>{
 
     let price = req.query.price;
     if(price == 0){
         price = Infinity;
     }
-    let colors = req.query.colors;
-    const sizes = req.query.sizes.split(',');
-    const productsType = req.query.productsType;
+    const productsType = req.query.productsType;    
     
-    //takes the color string , converts it to an array
-    //cheks if the array is empty if not then
-    //for each color create a word with uppercase
-    //exmple blue and Blue
-    //push both words into a new array (colorFilter)
-    const colorsArr = colors.split(',');
-    let colorsFilter = [];
-    if(colorsArr[0]!=''){
-        colorsFilter = colorsArr;
-        colorsArr.forEach(item=>{
-            const str = item.slice(1);
-            const char = item[0].toUpperCase();
-            const res = char + str;
-            colorsFilter.push(res);
-        })
+    const sizeFilters = req.query.sizes.split(',');
+    const colorFilters = req.query.colors.split(',')
+    
+    //find all variations with these values
+    const sizes = await variationAttribute.find({'values.value':{$in:sizeFilters}}).distinct('product_id');
+    const colors = await variationAttribute.find({'values.value':{$in:colorFilters}}).distinct('product_id');
+    
+    //search for products with chosen sizes and colors
+    let products = [];
+    if(colorFilters[0]=='' && sizeFilters[0]==''){
+        products = await Products.find({primary_category_id:productsType});
     }
-    
-    //filters the price and category
-    const result = await Products.find({primary_category_id:productsType,price:{$lte:price}});
-    
-    let filteredProducts = [];
-    if(colorsFilter.length===0){
-        filteredProducts=result;
-    }else{
-        filteredProducts = filterColors(result,colorsFilter);
+    if(colorFilters[0]!='' && sizeFilters[0]!=''){
+        products = await Products.find({$and:[{id:{$in:colors}},{id:{$in:sizes}}],primary_category_id:productsType});
     }
-    if(sizes[0]!=''){
-        filteredProducts=filterSizes(filteredProducts,sizes);
+    if(colorFilters[0]!='' && sizeFilters[0]==''){
+        products = await Products.find({id:{$in:colors},primary_category_id:productsType});
+    }
+    if(colorFilters[0]=='' && sizeFilters[0]!=''){
+        products = await Products.find({id:{$in:sizes},primary_category_id:productsType});
     }
 
-    res.send(JSON.stringify(filteredProducts));
+    //construct object to send to fronend
+    const data = await Promise.all(products.map(async product=>{
+
+        //finds 1 large image and all swatches
+        const {image_groups} = product;
+        const largeImage = await imageGroups.find({_id:{$in:image_groups},view_type:'large'}).limit(1);
+        const swatchImages = await imageGroups.find({_id:{$in:image_groups},view_type:'swatch'});
+
+        //pics only 1 link and alt for image
+        const largeImageData = largeImage[0].images;
+
+        //gets data for all swatch images
+        const swatchImagesData = [];
+        swatchImages.forEach(swatchImage=>{
+            const imageData = swatchImage.images[0];
+            swatchImagesData.push(imageData);
+        })
+
+        return({
+            productData:product,
+            largeImage:largeImageData[0],
+            swatchImages:swatchImagesData
+        });
+    }))
+    res.send({data:data});
 });
 
 

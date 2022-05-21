@@ -4,7 +4,7 @@ const Products = require('../models/product');
 const variationAttributes = require('../models/variationAttribute');
 const imageGroups = require('../models/imageGroup');
 
-const isDuplicate = (arr,value) =>{
+const isDuplicateSize = (arr,value) =>{
     //given array and value cheks if the array already contains this value
     for(item of arr){
         if(item.name === value.name && item.value === value.value){
@@ -13,13 +13,17 @@ const isDuplicate = (arr,value) =>{
     }
     return false;
 }
+const isDuplicateColors = (arr,object)=>{
+
+    for(item of arr){
+        if(item.variation_value == object.variation_value){
+            return true;
+        }
+    }
+    return false;
+}
 router.get('/',async (req,res)=>{
 
-    //summary of what does this router do 
-    //queries the db for all products with parent category == param form the query string
-    //finds the min and max price of all queried products
-    //find all avaible sizes in which those products are sold
-    
     //finds all products with required primary category
     const productType = req.query.productsType;
     const products = await Products.find({primary_category_id:productType});
@@ -35,13 +39,15 @@ router.get('/',async (req,res)=>{
     ])
 
     const avaibleSizes = [];
+    const avaibleColors = [];
+
     const data = await Promise.all(products.map(async (product)=>{
         //takes all sizes for current product
         const sizeVariations = await variationAttributes.find({product_id:product.id,id:'size'},{values:1})
 
         //if there are new sizes avaible add them
         sizeVariations[0].values.forEach(variation=>{
-            if(!isDuplicate(avaibleSizes,variation)){
+            if(!isDuplicateSize(avaibleSizes,variation)){
                 avaibleSizes.push(variation);
             }
         })
@@ -59,6 +65,13 @@ router.get('/',async (req,res)=>{
         swatchImages.forEach(swatchImage=>{
             const imageData = swatchImage.images[0];
             swatchImagesData.push(imageData);
+            if(isDuplicateColors(avaibleColors,swatchImage)===false){
+                avaibleColors.push({
+                    link:swatchImage.images[0].link,
+                    alt:swatchImage.images[0].alt,
+                    variation_value:swatchImage.variation_value
+                });
+            }
         })
 
         return({
@@ -68,11 +81,13 @@ router.get('/',async (req,res)=>{
         });
     }))
 
+    console.log(avaibleColors);
     res.send({
         products:data,
         minPrice:prices[0].min,
         maxPrice:prices[0].max,
-        avaibleSizes:avaibleSizes
+        avaibleSizes:avaibleSizes,
+        avaibleColors:avaibleColors
     });
 })
 

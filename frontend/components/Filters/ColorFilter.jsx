@@ -2,23 +2,22 @@ import React from 'react'
 
 function ColorFilter(props) {
 
-  const colors =['grey','red','blue','green','yellow','orange','black','white','pink','violet','all'];
   const handleChange = (e) =>{
     props.handleSetFilterValues(e);
   }
   return (
     <div className='color-filter my-checkbox'>
         {
-          colors.map((color,index)=>{
+          props.avaibleColors.map((color,index)=>{
             return(
               <React.Fragment key={index}>
                 <input onChange={handleChange}
-                  id={color} type='checkbox' 
-                  value={color} name='color'
-                  checked={props.filterValues.color.includes(color)?true:false}
+                  id={color.variation_value} type='checkbox' 
+                  value={color.variation_value} name='color'
+                  checked={props.filterValues.color.includes(color.variation_value)?true:false}
                   />
-                <label htmlFor={color} className='animate__animated animate__flipInX'>
-                  <div style={{backgroundColor:color}}className={`color-box ${color}`}></div>
+                <label htmlFor={color.variation_value} className='animate__animated animate__flipInX'>
+                    <img src={`/images/${color.link}`} alt={color.alt}/>
                 </label>
               </React.Fragment>
             )

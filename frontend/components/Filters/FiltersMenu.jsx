@@ -58,6 +58,7 @@ function FiltersMenu(props) {
                 </div>
                 {
                     showColorFilter && <ColorFilter
+                        avaibleColors={props.avaibleColors}
                         filterValues={props.filterValues}
                         handleSetFilterValues={props.handleSetFilterValues}
                     />
